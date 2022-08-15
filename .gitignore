@@ -1,0 +1,14 @@
+Library/
+Temp/
+Logs/
+obj/
+.vs/
+Packages/
+Assets/Modern UI Pack/
+Assets/Textmesh Pro/
+*.cache
+*.log
+*.ide-shm
+*.ide-wal
+*.ide
+*.csproj
