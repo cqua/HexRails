@@ -12,6 +12,10 @@ public class Railway : MonoBehaviour
 
 	public bool lookForward;
 
+
+	public bool LoopRight, LoopLeft;
+	public Railway ExitRight, ExitLeft;
+
 	private void Awake() {
 		Object railPrefab = Resources.Load<Object>("Prefabs/Rail");
 
@@ -28,7 +32,6 @@ public class Railway : MonoBehaviour
 						item.transform.LookAt(position + spline.GetDirection(progress));
 					}
 					item.transform.parent = spline.transform;
-					Debug.Log("Created Rail at progress " + p / railModelFrequency + ".");
 				}
 			}
 		}
