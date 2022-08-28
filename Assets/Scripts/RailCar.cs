@@ -10,7 +10,7 @@ public class RailCar : MonoBehaviour {
 
 	public float Speed = .05f;
 
-	public bool lookForward;
+	public bool lookForward = true;
 
 	public ProgressMode mode;
 
@@ -55,53 +55,75 @@ public class RailCar : MonoBehaviour {
 
 		if (TargetConnection != null) {
 			Speed = TargetConnection.Speed;
-			goingForward = TargetConnection.goingForward;
 			goingLeft = TargetConnection.goingLeft;
 			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
 			//progress = TargetConnection.progress - SpaceBetwixtCars;
 			if (Railway == TargetConnection.Railway) {
-				if (progress > TargetConnection.progress - SpaceBetwixtCars) {
-					progress = TargetConnection.progress - SpaceBetwixtCars;
+				goingForward = TargetConnection.goingForward;
+
+				int dir = goingForward ? 1 : -1;
+
+				if (progress > TargetConnection.progress - SpaceBetwixtCars * dir) {
+					progress = TargetConnection.progress - SpaceBetwixtCars * dir;
 				}
-				if (progress < TargetConnection.progress - SpaceBetwixtCars - .02f) {
-					progress = TargetConnection.progress - SpaceBetwixtCars - .02f;
+				if (progress < TargetConnection.progress + (- SpaceBetwixtCars - .02f) * dir) {
+					progress = TargetConnection.progress + (- SpaceBetwixtCars - .02f) * dir;
 				}
 			}
 		}
 
 		if (goingForward) {
-			progress += (Time.deltaTime) * Speed;
-			if (progress >= Railway.Length) {
-				if (goingLeft) {
-					if (!Railway.LoopLeft) {
-						Railway = Railway.ExitLeft;
+			progress += (Time.deltaTime) * Speed * (lookForward ? 1 : -1);
+
+			if (progress >= Railway.Length || progress < 0) {
+				if ((lookForward && Speed > 0) || (!lookForward && Speed < 0)) {
+					if (goingLeft) {
+						if (!Railway.LoopLeft) {
+							lookForward = !Railway.ReverseLeft;
+							Railway = Railway.ExitLeft;
+						}
 					} else {
-						progress -= Railway.Length;
+						if (!Railway.LoopRight) {
+							lookForward = !Railway.ReverseRight;
+							Railway = Railway.ExitRight;
+						}
 					}
 				} else {
-					if (!Railway.LoopRight) {
-						Railway = Railway.ExitRight;
+					if (goingLeft) {
+						if (!Railway.LoopRight) {
+							if (Railway != Railway.Previous.ExitRight) {
+								lookForward = !Railway.Previous.ReverseRight;
+								Railway = Railway.Previous.ExitRight;
+							} else {
+								lookForward = !Railway.Previous.;
+								Railway = Railway.Previous;
+							}
+						}
 					} else {
-						progress -= Railway.Length;
+						if (!Railway.LoopLeft) {
+							if (Railway != Railway.Previous.ExitLeft) {
+								lookForward = !Railway.Previous.ReverseLeft;
+								Railway = Railway.Previous.ExitLeft;
+							} else {
+								Railway = Railway.Previous;
+							}
+						}
 					}
 				}
-			}
-		} else {
-			if (Railway == null) {
-				Railway = TargetConnection.Railway;
-			}
-
-			progress -= Time.deltaTime * Speed;
-			if (progress < 0f) {
-				progress = -progress;
-				goingForward = true;
+				if(lookForward) {
+					progress = 0;
+				} else {
+					progress = Railway.Length - .001f;
+				}
 			}
 		}
 
 		Vector3 position = Railway.GetPoint(progress);
 		transform.localPosition = position;
 		if (lookForward) {
-			transform.LookAt(position + Railway.GetDirection(progress));
+			transform.LookAt(Railway.GetDirection(progress));
+		} else {
+			transform.LookAt(Railway.GetDirection(progress - 1));
 		}
 	}
 }
