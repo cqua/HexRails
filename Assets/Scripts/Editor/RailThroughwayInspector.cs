@@ -2,11 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Railway))]
-public class RailwayInspector : Editor {
+[CustomEditor(typeof(RailThroughway))]
+public class RailThroughwayInspector : Editor {
 
 	private void OnSceneGUI () {
-		Railway railway = target as Railway;
+		RailThroughway railway = target as RailThroughway;
 		Transform handleTransform = railway.transform;
 		Quaternion handleRotation = Tools.pivotRotation == PivotRotation.Local ? handleTransform.rotation : Quaternion.identity;
 

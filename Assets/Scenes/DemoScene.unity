@@ -706,7 +706,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 569287131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1819edef4d5a1124dbc786ae4842fad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   railModelFrequency: 30
@@ -718,7 +718,7 @@ MonoBehaviour:
   ExitRailTopRight: {fileID: 1017354550}
   ExitRailTopRightToIntersection: 0
   ExitRailBottom: {fileID: 1017354550}
-  ExitRailBottomToIntersection: 1
+  ExitRailBottomToIntersection: 0
 --- !u!4 &569287133
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 846349082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e91625438e897549ad22e6a2e5e9495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   railModelFrequency: 30
@@ -1284,12 +1284,10 @@ MonoBehaviour:
   - {x: 24, y: 0, z: 16}
   - {x: 0, y: 0, z: 32}
   - {x: -24, y: 0, z: 16}
-  ExitRailTopLeft: {fileID: 569287132}
-  ExitRailTopLeftToIntersection: 0
-  ExitRailTopRight: {fileID: 1017354550}
-  ExitRailTopRightToIntersection: 1
-  ExitRailBottom: {fileID: 1017354550}
-  ExitRailBottomToIntersection: 0
+  ExitRailTop: {fileID: 569287132}
+  ExitRailTopToIntersection: 0
+  ExitRailBottom: {fileID: 569287132}
+  ExitRailBottomToIntersection: 1
 --- !u!4 &846349084
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,7 +1394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017354548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e91625438e897549ad22e6a2e5e9495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   railModelFrequency: 30
@@ -1407,12 +1405,10 @@ MonoBehaviour:
   - {x: -24, y: 0, z: 16}
   - {x: 0, y: 0, z: 32}
   - {x: 24, y: 0, z: 16}
-  ExitRailTopLeft: {fileID: 846349083}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 569287132}
-  ExitRailTopRightToIntersection: 0
+  ExitRailTop: {fileID: 569287132}
+  ExitRailTopToIntersection: 0
   ExitRailBottom: {fileID: 569287132}
-  ExitRailBottomToIntersection: 0
+  ExitRailBottomToIntersection: 1
 --- !u!54 &1117797178
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Helpers {
-	class RailExit {
+	public class RailExit {
 		public bool IsDeadEnd;
 		public Railway From, To;
 		public bool FromAnIntersection, ToAnIntersection;
