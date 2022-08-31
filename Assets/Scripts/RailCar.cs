@@ -10,13 +10,10 @@ public class RailCar : MonoBehaviour {
 
 	public float Speed = .05f;
 
-	public bool lookForward = true;
-
-	public ProgressMode mode;
+	public Direction CurrentDirection = Direction.Left;
+	public Orientation CurrentOrientation = Orientation.Forward;
 
 	public float progress;
-	private bool goingForward = true;
-	public bool goingLeft = true;
 
 	public RailCar TargetConnection;
 
@@ -33,97 +30,70 @@ public class RailCar : MonoBehaviour {
 	}
 
 	private void Update () {
-		switch(SpeedSlider.mainSlider.value) {
-			case -1:
-				Speed = -.05f;
-				break;
-			case 1:
-				Speed = .05f;
-				break;
-			case 2:
-				Speed = .3f;
-				break;
-			case 3:
-				Speed = 1.8f;
-				break;
-			default:
-				Speed = 0;
-				break;
+		if (TargetConnection == null) {
+			switch (SpeedSlider.mainSlider.value) {
+				case -1:
+					Speed = -.05f;
+					break;
+				case 1:
+					Speed = .05f;
+					break;
+				case 2:
+					Speed = .3f;
+					break;
+				case 3:
+					Speed = 1.8f;
+					break;
+				default:
+					Speed = 0;
+					break;
+			}
+
+			if (DirectionSwitch.isOn) {
+				CurrentDirection = Direction.Right;
+			} else {
+				CurrentDirection = Direction.Left;
+			}
 		}
-
-		goingLeft = !DirectionSwitch.isOn;
-
-		if (TargetConnection != null) {
+		else 
+		{ 
 			Speed = TargetConnection.Speed;
-			goingLeft = TargetConnection.goingLeft;
+			CurrentDirection = TargetConnection.CurrentDirection;
 			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
 			//progress = TargetConnection.progress - SpaceBetwixtCars;
 			if (Railway == TargetConnection.Railway) {
-				goingForward = TargetConnection.goingForward;
+				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				int dir = goingForward ? 1 : -1;
+				int directionMod = CurrentOrientation == Orientation.Forward ? 1 : -1;
 
-				if (progress > TargetConnection.progress - SpaceBetwixtCars * dir) {
-					progress = TargetConnection.progress - SpaceBetwixtCars * dir;
+				if (progress > TargetConnection.progress - SpaceBetwixtCars * directionMod) {
+					progress = TargetConnection.progress - SpaceBetwixtCars * directionMod;
 				}
-				if (progress < TargetConnection.progress + (- SpaceBetwixtCars - .02f) * dir) {
-					progress = TargetConnection.progress + (- SpaceBetwixtCars - .02f) * dir;
-				}
-			}
-		}
-
-		if (goingForward) {
-			progress += (Time.deltaTime) * Speed * (lookForward ? 1 : -1);
-
-			if (progress >= Railway.Length || progress < 0) {
-				if ((lookForward && Speed > 0) || (!lookForward && Speed < 0)) {
-					if (goingLeft) {
-						if (!Railway.LoopLeft) {
-							lookForward = !Railway.ReverseLeft;
-							Railway = Railway.ExitLeft;
-						}
-					} else {
-						if (!Railway.LoopRight) {
-							lookForward = !Railway.ReverseRight;
-							Railway = Railway.ExitRight;
-						}
-					}
-				} else {
-					if (goingLeft) {
-						if (!Railway.LoopRight) {
-							if (Railway != Railway.Previous.ExitRight) {
-								lookForward = !Railway.Previous.ReverseRight;
-								Railway = Railway.Previous.ExitRight;
-							} else {
-								lookForward = !Railway.Previous.;
-								Railway = Railway.Previous;
-							}
-						}
-					} else {
-						if (!Railway.LoopLeft) {
-							if (Railway != Railway.Previous.ExitLeft) {
-								lookForward = !Railway.Previous.ReverseLeft;
-								Railway = Railway.Previous.ExitLeft;
-							} else {
-								Railway = Railway.Previous;
-							}
-						}
-					}
-				}
-				if(lookForward) {
-					progress = 0;
-				} else {
-					progress = Railway.Length - .001f;
+				if (progress < TargetConnection.progress + (- SpaceBetwixtCars - .02f) * directionMod) {
+					progress = TargetConnection.progress + (- SpaceBetwixtCars - .02f) * directionMod;
 				}
 			}
 		}
 
-		Vector3 position = Railway.GetPoint(progress);
+		progress += (Time.deltaTime) * Speed;
+		
+		if(Railway.CarHasLeftRail(progress)) {
+
+			var nextRail = Railway.GetNextRail(this);
+
+			if (CurrentOrientation == Orientation.Forward) {
+				progress -= Railway.Length;
+			}
+
+			Railway = nextRail;
+
+			if (CurrentOrientation == Orientation.Reverse) {
+				progress += Railway.Length;
+			}
+		}
+
+		Vector3 position = Railway.GetPoint(progress, CurrentOrientation == Orientation.Reverse);
 		transform.localPosition = position;
-		if (lookForward) {
-			transform.LookAt(Railway.GetDirection(progress));
-		} else {
-			transform.LookAt(Railway.GetDirection(progress - 1));
-		}
+		transform.LookAt(Railway.GetDirection(progress, CurrentOrientation == Orientation.Reverse));
 	}
 }

@@ -709,17 +709,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  railModelFrequency: 30
   Points:
   - {x: 24, y: 0, z: 16}
   - {x: 24, y: 0, z: -16}
-  railModelFrequency: 30
-  LoopRight: 0
-  LoopLeft: 0
-  ReverseRight: 0
-  ReverseLeft: 0
-  ExitRight: {fileID: 1017354550}
-  ExitLeft: {fileID: 846349083}
-  Previous: {fileID: 1017354550}
+  ExitRailTopLeft: {fileID: 846349083}
+  ExitRailTopLeftToIntersection: 0
+  ExitRailTopRight: {fileID: 1017354550}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 1017354550}
+  ExitRailBottomToIntersection: 1
 --- !u!4 &569287133
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  railModelFrequency: 30
   Points:
   - {x: -24, y: 0, z: -16}
   - {x: 0, y: 0, z: -32}
@@ -1284,14 +1284,12 @@ MonoBehaviour:
   - {x: 24, y: 0, z: 16}
   - {x: 0, y: 0, z: 32}
   - {x: -24, y: 0, z: 16}
-  railModelFrequency: 30
-  LoopRight: 0
-  LoopLeft: 0
-  ReverseRight: 1
-  ReverseLeft: 0
-  ExitRight: {fileID: 1017354550}
-  ExitLeft: {fileID: 569287132}
-  Previous: {fileID: 569287132}
+  ExitRailTopLeft: {fileID: 569287132}
+  ExitRailTopLeftToIntersection: 0
+  ExitRailTopRight: {fileID: 1017354550}
+  ExitRailTopRightToIntersection: 1
+  ExitRailBottom: {fileID: 1017354550}
+  ExitRailBottomToIntersection: 0
 --- !u!4 &846349084
 Transform:
   m_ObjectHideFlags: 0
@@ -1401,6 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f3c660b43cf7643a2de56dd27b1ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  railModelFrequency: 30
   Points:
   - {x: 24, y: 0, z: -16}
   - {x: 0, y: 0, z: -32}
@@ -1408,14 +1407,12 @@ MonoBehaviour:
   - {x: -24, y: 0, z: 16}
   - {x: 0, y: 0, z: 32}
   - {x: 24, y: 0, z: 16}
-  railModelFrequency: 30
-  LoopRight: 0
-  LoopLeft: 0
-  ReverseRight: 0
-  ReverseLeft: 1
-  ExitRight: {fileID: 569287132}
-  ExitLeft: {fileID: 846349083}
-  Previous: {fileID: 569287132}
+  ExitRailTopLeft: {fileID: 846349083}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 569287132}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 569287132}
+  ExitRailBottomToIntersection: 0
 --- !u!54 &1117797178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3361,10 +3358,9 @@ MonoBehaviour:
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
   Speed: 0.05
-  lookForward: 1
-  mode: 1
+  CurrentDirection: 0
+  CurrentOrientation: 0
   progress: 0
-  goingLeft: 1
   TargetConnection: {fileID: 1002881967388732088}
   SpaceBetwixtCars: 0.7
 --- !u!33 &1002881966010705474
@@ -3635,10 +3631,9 @@ MonoBehaviour:
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
   Speed: 0.05
-  lookForward: 1
-  mode: 1
+  CurrentDirection: 0
+  CurrentOrientation: 0
   progress: 0
-  goingLeft: 1
   TargetConnection: {fileID: 4526511914853988825}
   SpaceBetwixtCars: 0.11
 --- !u!4 &1160799822725443987
@@ -3700,10 +3695,9 @@ MonoBehaviour:
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
   Speed: 0.7
-  lookForward: 1
-  mode: 1
+  CurrentDirection: 0
+  CurrentOrientation: 0
   progress: 0
-  goingLeft: 1
   TargetConnection: {fileID: 0}
   SpaceBetwixtCars: 0.11
 --- !u!33 &7002493175218732911
