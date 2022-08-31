@@ -54,17 +54,31 @@ public class RailIntersection : Railway {
 		}
 
 		if (progress < 0) {
-			car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+			if (car.CurrentOrientation == Orientation.Forward) {
+				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+				car.progress += Bottom.To.Length;
+			} else {
+				car.progress -= Length;
+				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+			}
 			return Bottom.To;
 		}
 
 		if(progress >= Length) {
-			if(car.CurrentDirection == Direction.Left) {
-				car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
-				return TopLeft.To;
+			if(car.CurrentOrientation == Orientation.Forward) {
+				car.progress -= Length;
+
+				if (car.CurrentDirection == Direction.Left) {
+					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+					return TopLeft.To;
+				} else {
+					car.CurrentOrientation = TopRight.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+					return TopRight.To;
+				}
 			} else {
-				car.CurrentOrientation = TopRight.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
-				return TopRight.To;
+				car.progress += TopLeft.To.Length;
+				car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+				return TopLeft.To;
 			}
 		}
 

@@ -718,7 +718,7 @@ MonoBehaviour:
   ExitRailTopRight: {fileID: 1017354550}
   ExitRailTopRightToIntersection: 0
   ExitRailBottom: {fileID: 1017354550}
-  ExitRailBottomToIntersection: 0
+  ExitRailBottomToIntersection: 1
 --- !u!4 &569287133
 Transform:
   m_ObjectHideFlags: 0
@@ -3693,7 +3693,7 @@ MonoBehaviour:
   Speed: 0.7
   CurrentDirection: 0
   CurrentOrientation: 0
-  progress: 0
+  progress: 0.5
   TargetConnection: {fileID: 0}
   SpaceBetwixtCars: 0.11
 --- !u!33 &7002493175218732911

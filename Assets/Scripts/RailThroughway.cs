@@ -51,11 +51,22 @@ public class RailThroughway : Railway {
 		}
 
 		if (progress < 0) {
-			car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+			if (car.CurrentOrientation == Orientation.Forward) {
+				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+				car.progress += Bottom.To.Length;
+			} else {
+				car.progress -= Length;
+				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
+			}
 			return Bottom.To;
 		}
 
-		if(progress >= Length) {
+		if (progress >= Length) {
+			if (car.CurrentOrientation == Orientation.Forward) {
+				car.progress -= Length;
+			} else {
+				car.progress += Top.To.Length;
+			}
 			car.CurrentOrientation = Top.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
 			return Top.To;
 		}

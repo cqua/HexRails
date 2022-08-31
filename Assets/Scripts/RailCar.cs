@@ -33,13 +33,13 @@ public class RailCar : MonoBehaviour {
 		if (TargetConnection == null) {
 			switch (SpeedSlider.mainSlider.value) {
 				case -1:
-					Speed = -.05f;
+					Speed = -.3f;
 					break;
 				case 1:
-					Speed = .05f;
+					Speed = .3f;
 					break;
 				case 2:
-					Speed = .3f;
+					Speed = .9f;
 					break;
 				case 3:
 					Speed = 1.8f;
@@ -80,16 +80,8 @@ public class RailCar : MonoBehaviour {
 		if(Railway.CarHasLeftRail(progress)) {
 
 			var nextRail = Railway.GetNextRail(this);
-
-			if (CurrentOrientation == Orientation.Forward) {
-				progress -= Railway.Length;
-			}
-
+			
 			Railway = nextRail;
-
-			if (CurrentOrientation == Orientation.Reverse) {
-				progress += Railway.Length;
-			}
 		}
 
 		Vector3 position = Railway.GetPoint(progress, CurrentOrientation == Orientation.Reverse);
