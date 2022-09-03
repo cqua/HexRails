@@ -24,6 +24,8 @@ public class RailIntersection : Railway {
 			t = Length - t;
 
 		if(t < 0) {
+			if(Bottom.IsDeadEnd)
+				return Points[0];
 			return Bottom.To.GetPoint(t + Bottom.To.Length, (Bottom.FromAnIntersection || Bottom.ToAnIntersection) ? reverse : !reverse);
 		}
 		if (t >= Length) {
@@ -38,7 +40,7 @@ public class RailIntersection : Railway {
 			t = t - 1;
 
 		if (t < 0) {
-			return Bottom.To.GetDirection(t + Bottom.To.Length, (Bottom.FromAnIntersection || Bottom.ToAnIntersection) ? reverse : !reverse);
+			return transform.position + Points[0];
 		}
 		if (t >= Length) {
 			return transform.position + Points[Length];
@@ -54,6 +56,9 @@ public class RailIntersection : Railway {
 		}
 
 		if (progress < 0) {
+			if (Bottom.IsDeadEnd)
+				return null;
+
 			if (car.CurrentOrientation == Orientation.Forward) {
 				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
 				car.progress += Bottom.To.Length;
@@ -66,19 +71,31 @@ public class RailIntersection : Railway {
 
 		if(progress >= Length) {
 			if(car.CurrentOrientation == Orientation.Forward) {
-				car.progress -= Length;
-
-				if (car.CurrentDirection == Direction.Left) {
+				if (car.CurrentDirection == Direction.Left && !TopLeft.IsDeadEnd) {
+					car.progress -= Length;
 					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
 					return TopLeft.To;
-				} else {
+
+				} else if (!TopRight.IsDeadEnd) {
+					car.progress -= Length;
 					car.CurrentOrientation = TopRight.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
 					return TopRight.To;
+
+				} else {
+					return null;
 				}
 			} else {
-				car.progress += TopLeft.To.Length;
-				car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
-				return TopLeft.To;
+				if (!TopLeft.IsDeadEnd) {
+					car.progress += TopLeft.To.Length;
+					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+					return TopLeft.To;
+				} else if (!TopRight.IsDeadEnd) {
+					car.progress += TopLeft.To.Length;
+					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+					return TopLeft.To;
+				} else {
+					return null;
+				}
 			}
 		}
 

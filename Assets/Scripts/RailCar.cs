@@ -13,7 +13,7 @@ public class RailCar : MonoBehaviour {
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
 
-	public float progress;
+	public float progress = 0;
 
 	public RailCar TargetConnection;
 
@@ -22,7 +22,8 @@ public class RailCar : MonoBehaviour {
 	private void Awake() {
 		if(TargetConnection != null) {
 			Railway = TargetConnection.Railway;
-			progress = TargetConnection.progress - SpaceBetwixtCars;
+			int directionMod = CurrentOrientation == Orientation.Forward ? 1 : -1;
+			progress = TargetConnection.progress - SpaceBetwixtCars * directionMod;
 		}
 
 		SpeedSlider = GameObject.FindGameObjectWithTag("SpeedSlider").GetComponent<SliderManager>();
@@ -69,8 +70,8 @@ public class RailCar : MonoBehaviour {
 				if (progress > TargetConnection.progress - SpaceBetwixtCars * directionMod) {
 					progress = TargetConnection.progress - SpaceBetwixtCars * directionMod;
 				}
-				if (progress < TargetConnection.progress + (- SpaceBetwixtCars - .02f) * directionMod) {
-					progress = TargetConnection.progress + (- SpaceBetwixtCars - .02f) * directionMod;
+				if (progress < TargetConnection.progress - (SpaceBetwixtCars) * directionMod) {
+					progress = TargetConnection.progress - (SpaceBetwixtCars) * directionMod;
 				}
 			}
 		}
@@ -81,7 +82,19 @@ public class RailCar : MonoBehaviour {
 
 			var nextRail = Railway.GetNextRail(this);
 			
-			Railway = nextRail;
+			if(nextRail == null) {
+				// problem with rail, automatic fullstop
+				SpeedSlider.mainSlider.value = 0;
+				Speed = 0;
+				if(CurrentOrientation == Orientation.Forward) {
+					progress = (Time.deltaTime) * Speed + .01f;
+				} else {
+					progress = Railway.Length;
+				}
+			} else {
+				// continue onto rail
+				Railway = nextRail;
+			}
 		}
 
 		Vector3 position = Railway.GetPoint(progress, CurrentOrientation == Orientation.Reverse);
