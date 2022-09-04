@@ -7,7 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 public sealed class PostProcessOutline : PostProcessEffectSettings {
 	[Tooltip("Number of pixels between samples that are tested for an edge. When this value is 1, tested samples are adjacent.")]
 	public IntParameter scale = new IntParameter { value = 1 };
-	public ColorParameter color = new ColorParameter { value = Color.white };
+	public ColorParameter color = new ColorParameter { value = Color.black };
 	[Tooltip("Difference between depth values, scaled by the current depth, required to draw an edge.")]
 	public FloatParameter depthThreshold = new FloatParameter { value = 1.5f };
 	[Range(0, 1), Tooltip("The value at which the dot product between the surface normal and the view direction will affect " +
