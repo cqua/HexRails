@@ -50,15 +50,17 @@ public abstract class Railway : MonoBehaviour {
 		return GetPointAlongLine(Points[Mathf.FloorToInt(t)], Points[Mathf.FloorToInt(t) + 1], t - Mathf.FloorToInt(t));
 	}
 
-	public virtual Vector3 GetDirection(float t, bool reverse = false) {
-		if (reverse)
-			t = t - 1;
-		
-		if (t >= Length) {
-			return transform.position + Points[Length];
+	public Vector3 GetDirection(float t, bool reverse = false) {
+		if (!reverse) {
+			if (Length == 1 || t + 1 >= Length)
+				return transform.position + Points[Length];
+			return transform.position + Points[Mathf.CeilToInt(t)];
+		} else {
+			if (Length == 1 || t + 1 >= Length) {
+				return transform.position + Points[0];
+			}
+			return transform.position + Points[Mathf.CeilToInt(t)];
 		}
-
-		return transform.position + Points[Mathf.FloorToInt(t) + 1];
 	}
 
 	protected Vector3 GetPointAlongLine(Vector3 p0, Vector3 p1, float progress) {

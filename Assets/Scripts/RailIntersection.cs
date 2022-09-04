@@ -35,20 +35,6 @@ public class RailIntersection : Railway {
 		return GetPointAlongLine(Points[Mathf.FloorToInt(t)], Points[Mathf.FloorToInt(t) + 1], t - Mathf.FloorToInt(t));
 	}
 
-	public override Vector3 GetDirection(float t, bool reverse = false) {
-		if (reverse)
-			t = t - 1;
-
-		if (t < 0) {
-			return transform.position + Points[0];
-		}
-		if (t >= Length) {
-			return transform.position + Points[Length];
-		}
-
-		return transform.position + Points[Mathf.FloorToInt(t) + 1];
-	}
-
 	public override Railway GetNextRail(RailCar car) {
 		float progress = car.progress;
 		if(car.CurrentOrientation == Orientation.Reverse) {
@@ -56,8 +42,9 @@ public class RailIntersection : Railway {
 		}
 
 		if (progress < 0) {
-			if (Bottom.IsDeadEnd)
+			if (Bottom.IsDeadEnd) {
 				return null;
+			}
 
 			if (car.CurrentOrientation == Orientation.Forward) {
 				car.CurrentOrientation = Bottom.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
@@ -90,9 +77,9 @@ public class RailIntersection : Railway {
 					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
 					return TopLeft.To;
 				} else if (!TopRight.IsDeadEnd) {
-					car.progress += TopLeft.To.Length;
-					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
-					return TopLeft.To;
+					car.progress += TopRight.To.Length;
+					car.CurrentOrientation = TopRight.ToAnIntersection ? Orientation.Forward : Orientation.Reverse;
+					return TopRight.To;
 				} else {
 					return null;
 				}

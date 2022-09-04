@@ -8,7 +8,9 @@ public class RailCar : MonoBehaviour {
 	public SliderManager SpeedSlider;
 	public SwitchManager DirectionSwitch;
 
-	public float Speed = .05f;
+	public bool IsEngine { get { return TargetConnection == null; } }
+
+	public float BaseSpeed = 2f, Speed = 1;
 
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
@@ -17,13 +19,12 @@ public class RailCar : MonoBehaviour {
 
 	public RailCar TargetConnection;
 
-	public float SpaceBetwixtCars = .11f;
+	public float SpaceBetwixtCars = .22f;
 
 	private void Awake() {
 		if(TargetConnection != null) {
 			Railway = TargetConnection.Railway;
-			int directionMod = CurrentOrientation == Orientation.Forward ? 1 : -1;
-			progress = TargetConnection.progress - SpaceBetwixtCars * directionMod;
+			progress = TargetConnection.progress - SpaceBetwixtCars;
 		}
 
 		SpeedSlider = GameObject.FindGameObjectWithTag("SpeedSlider").GetComponent<SliderManager>();
@@ -50,6 +51,8 @@ public class RailCar : MonoBehaviour {
 					break;
 			}
 
+			Speed = Speed * BaseSpeed;
+
 			if (DirectionSwitch.isOn) {
 				CurrentDirection = Direction.Right;
 			} else {
@@ -65,20 +68,18 @@ public class RailCar : MonoBehaviour {
 			if (Railway == TargetConnection.Railway) {
 				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				int directionMod = CurrentOrientation == Orientation.Forward ? 1 : -1;
-
-				if (progress > TargetConnection.progress - SpaceBetwixtCars * directionMod) {
-					progress = TargetConnection.progress - SpaceBetwixtCars * directionMod;
+				if (progress > TargetConnection.progress - SpaceBetwixtCars) {
+					progress = TargetConnection.progress - SpaceBetwixtCars;
 				}
-				if (progress < TargetConnection.progress - (SpaceBetwixtCars) * directionMod) {
-					progress = TargetConnection.progress - (SpaceBetwixtCars) * directionMod;
+				if (progress < TargetConnection.progress - SpaceBetwixtCars) {
+					progress = TargetConnection.progress - SpaceBetwixtCars;
 				}
 			}
 		}
 
 		progress += (Time.deltaTime) * Speed;
-		
-		if(Railway.CarHasLeftRail(progress)) {
+
+		if (Railway.CarHasLeftRail(progress) && Speed != 0) {
 
 			var nextRail = Railway.GetNextRail(this);
 			

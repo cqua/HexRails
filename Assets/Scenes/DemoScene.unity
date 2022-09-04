@@ -1163,8 +1163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railModelFrequency: 30
   Points:
-  - {x: 75.7, y: 0, z: -75.7}
-  - {x: 75.7, y: 0, z: -43.7}
+  - {x: 37.856, y: 0, z: -37.856}
+  - {x: 37.856, y: 0, z: -21.856}
   ExitRailTopLeft: {fileID: 1025867476}
   ExitRailTopLeftToIntersection: 1
   ExitRailTopRight: {fileID: 1141192903}
@@ -1546,9 +1546,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railModelFrequency: 30
   Points:
-  - {x: 32, y: 0, z: 0}
-  - {x: 59.7, y: 0, z: -15.9}
-  - {x: 75.7, y: 0, z: -43.7}
+  - {x: 16, y: 0, z: 0}
+  - {x: 29.856, y: 0, z: -8}
+  - {x: 37.856, y: 0, z: -21.856}
   ExitRailTop: {fileID: 690484769}
   ExitRailTopToIntersection: 1
   ExitRailBottom: {fileID: 1232679846}
@@ -1598,8 +1598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railModelFrequency: 30
   Points:
-  - {x: 75.7, y: 0, z: 75.7}
-  - {x: 75.7, y: 0, z: 43.7}
+  - {x: 37.856, y: 0, z: 37.856}
+  - {x: 37.856, y: 0, z: 21.856}
   ExitRailTopLeft: {fileID: 1141192903}
   ExitRailTopLeftToIntersection: 0
   ExitRailTopRight: {fileID: 1565758468}
@@ -1742,12 +1742,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railModelFrequency: 30
   Points:
-  - {x: 75.7, y: 0, z: 43.7}
-  - {x: 75.7, y: 0, z: 0}
-  - {x: 75.7, y: 0, z: -43.7}
+  - {x: 37.856, y: 0, z: 21.856}
+  - {x: 37.856, y: 0, z: 0}
+  - {x: 37.856, y: 0, z: -21.856}
   ExitRailTop: {fileID: 690484769}
   ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 1232679846}
+  ExitRailBottom: {fileID: 1037892755}
   ExitRailBottomToIntersection: 1
 --- !u!1 &1181753914
 GameObject:
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   railModelFrequency: 30
   Points:
   - {x: 0, y: 0, z: 0}
-  - {x: 32, y: 0, z: 0}
+  - {x: 16, y: 0, z: 0}
   ExitRailTopLeft: {fileID: 1565758468}
   ExitRailTopLeftToIntersection: 0
   ExitRailTopRight: {fileID: 1025867476}
@@ -2539,9 +2539,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railModelFrequency: 30
   Points:
-  - {x: 32, y: 0, z: 0}
-  - {x: 59.7, y: 0, z: 15.9}
-  - {x: 75.7, y: 0, z: 43.7}
+  - {x: 16, y: 0, z: 0}
+  - {x: 29.856, y: 0, z: 8}
+  - {x: 37.856, y: 0, z: 21.856}
   ExitRailTop: {fileID: 1037892755}
   ExitRailTopToIntersection: 1
   ExitRailBottom: {fileID: 1232679846}
@@ -3707,6 +3707,7 @@ MonoBehaviour:
   Railway: {fileID: 1232679846}
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
+  BaseSpeed: 2
   Speed: 0.05
   CurrentDirection: 0
   CurrentOrientation: 0
@@ -3980,6 +3981,7 @@ MonoBehaviour:
   Railway: {fileID: 1232679846}
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
+  BaseSpeed: 2
   Speed: 0.05
   CurrentDirection: 0
   CurrentOrientation: 0
@@ -4044,12 +4046,13 @@ MonoBehaviour:
   Railway: {fileID: 1232679846}
   SpeedSlider: {fileID: 0}
   DirectionSwitch: {fileID: 0}
+  BaseSpeed: 2
   Speed: 0.7
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
-  SpaceBetwixtCars: 0.11
+  SpaceBetwixtCars: 0.22
 --- !u!33 &7002493175218732911
 MeshFilter:
   m_ObjectHideFlags: 0
