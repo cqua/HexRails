@@ -58,12 +58,13 @@ public class RailIntersection : Railway {
 
 		if(progress >= Length) {
 			if(car.CurrentOrientation == Orientation.Forward) {
-				if (!TopLeft.IsDeadEnd && (car.CurrentDirection == Direction.Left || car.TargetConnection.Railway == TopLeft.To)) {
+				if (!TopLeft.IsDeadEnd && (car.CurrentDirection == Direction.Left || 
+					(!car.IsEngine && car.TargetConnection.Railway == TopLeft.To))) {
 					car.progress -= Length;
 					car.CurrentOrientation = TopLeft.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
 					return TopLeft.To;
 
-				} else if (!TopRight.IsDeadEnd && car.TargetConnection.Railway == TopRight.To) {
+				} else if (!TopRight.IsDeadEnd) {
 					car.progress -= Length;
 					car.CurrentOrientation = TopRight.ToAnIntersection ? Orientation.Reverse : Orientation.Forward;
 					return TopRight.To;
