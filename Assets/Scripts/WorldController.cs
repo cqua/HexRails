@@ -11,6 +11,8 @@ public class WorldController : MonoBehaviour
     public static SliderManager SpeedSlider;
     public static SwitchManager DirectionSwitch;
 
+	public GameObject PausePanel;
+
 	public static WorldController Instance { get { return _instance; } }
 
 	private static WorldController _instance;
@@ -25,27 +27,34 @@ public class WorldController : MonoBehaviour
 
         SpeedSlider = GameObject.FindGameObjectWithTag("SpeedSlider").GetComponent<SliderManager>();
         DirectionSwitch = GameObject.FindGameObjectWithTag("DirectionSwitch").GetComponent<SwitchManager>();
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 		if (Input.GetButtonDown("Cancel")) {
-			Debug.Log("Paused!");
-			Paused = !Paused;
-
-			if(Paused) {
-				SpeedSlider.mainSlider.enabled = false;
-				DirectionSwitch.switchButton.enabled = false;
+			if (Paused) {
+				Unpause();
 			} else {
-				SpeedSlider.mainSlider.enabled = true;
-				DirectionSwitch.switchButton.enabled = true;
+				Pause();
 			}
 		}
 
 		if(!Paused) {
 			float engineSpeed = 0f;
+
+			if(Input.GetKeyDown(KeyCode.W) && SpeedSlider.mainSlider.value < 3) {
+				SpeedSlider.mainSlider.value++;
+			} else if (Input.GetKeyDown(KeyCode.S) && SpeedSlider.mainSlider.value > -1) {
+				SpeedSlider.mainSlider.value--;
+			}
+
+			if (Input.GetKeyDown(KeyCode.A) && DirectionSwitch.isOn) {
+				DirectionSwitch.AnimateSwitch();
+				DirectionSwitch.isOn = false;
+			} else if (Input.GetKeyDown(KeyCode.D) && !DirectionSwitch.isOn) {
+				DirectionSwitch.AnimateSwitch();
+				DirectionSwitch.isOn = true;
+			}
 
 			switch (SpeedSlider.mainSlider.value) {
 				case -1:
@@ -78,5 +87,25 @@ public class WorldController : MonoBehaviour
 	public static void ForceFullstop() {
 		SpeedSlider.mainSlider.value = 0;
 		Instance.Engine.Speed = 0;
+	}
+
+	public void Pause() {
+		SpeedSlider.mainSlider.enabled = false;
+		DirectionSwitch.switchButton.enabled = false;
+
+		PausePanel.SetActive(true);
+		Paused = true;
+	}
+
+	public void Unpause() {
+		SpeedSlider.mainSlider.enabled = true;
+		DirectionSwitch.switchButton.enabled = true;
+
+		PausePanel.SetActive(false);
+		Paused = false;
+	}
+
+	public void ExitGame() {
+		Application.Quit();
 	}
 }
