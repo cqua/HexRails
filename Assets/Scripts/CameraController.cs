@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+		if (WorldController.Paused) return;
+
         Vector3 ppos = PlayerEngine.transform.position;
 
 		float TargetAngle;

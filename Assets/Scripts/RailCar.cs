@@ -4,9 +4,6 @@ using Michsky.UI.ModernUIPack;
 public class RailCar : MonoBehaviour {
 
 	public Railway Railway;
-	
-	public SliderManager SpeedSlider;
-	public SwitchManager DirectionSwitch;
 
 	public bool IsEngine { get { return TargetConnection == null; } }
 
@@ -26,38 +23,12 @@ public class RailCar : MonoBehaviour {
 			Railway = TargetConnection.Railway;
 			progress = TargetConnection.progress - SpaceBetwixtCars;
 		}
-
-		SpeedSlider = GameObject.FindGameObjectWithTag("SpeedSlider").GetComponent<SliderManager>();
-		DirectionSwitch = GameObject.FindGameObjectWithTag("DirectionSwitch").GetComponent<SwitchManager>();
 	}
 
 	private void Update () {
+		if (WorldController.Paused) return;
+
 		if (TargetConnection == null) {
-			switch (SpeedSlider.mainSlider.value) {
-				case -1:
-					Speed = -.3f;
-					break;
-				case 1:
-					Speed = .3f;
-					break;
-				case 2:
-					Speed = .9f;
-					break;
-				case 3:
-					Speed = 1.8f;
-					break;
-				default:
-					Speed = 0;
-					break;
-			}
-
-			Speed = Speed * BaseSpeed;
-
-			if (DirectionSwitch.isOn) {
-				CurrentDirection = Direction.Right;
-			} else {
-				CurrentDirection = Direction.Left;
-			}
 		}
 		else 
 		{ 
@@ -85,8 +56,8 @@ public class RailCar : MonoBehaviour {
 			
 			if(nextRail == null) {
 				// problem with rail, automatic fullstop
-				SpeedSlider.mainSlider.value = 0;
-				Speed = 0;
+				WorldController.ForceFullstop();
+
 				if(CurrentOrientation == Orientation.Forward) {
 					progress = (Time.deltaTime) * Speed + .01f;
 				} else {
