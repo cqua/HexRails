@@ -9,6 +9,12 @@ public abstract class Railway : MonoBehaviour {
 	public List<Vector3> Points;
 	public int Length { get { return Points == null ? 0 : Points.Count - 1; } }
 
+	public int CurveCount {
+		get {
+			return Length / 3;
+		}
+	}
+
 	private void Awake() {
 		Object railPrefab = Resources.Load<Object>("Prefabs/Rail");
 

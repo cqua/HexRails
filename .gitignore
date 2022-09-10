@@ -3,6 +3,7 @@ Temp/
 Logs/
 obj/
 .vs/
+build/
 Packages/
 Assets/Modern UI Pack/
 Assets/Textmesh Pro/
