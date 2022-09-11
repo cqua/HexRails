@@ -27,7 +27,10 @@ public class WorldController : MonoBehaviour
 
         SpeedSlider = GameObject.FindGameObjectWithTag("SpeedSlider").GetComponent<SliderManager>();
         DirectionSwitch = GameObject.FindGameObjectWithTag("DirectionSwitch").GetComponent<SwitchManager>();
-    }
+
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+	}
 
     // Update is called once per frame
     void Update() {
@@ -74,7 +77,7 @@ public class WorldController : MonoBehaviour
 					break;
 			}
 
-			Engine.Speed = engineSpeed * Engine.BaseSpeed;
+			Engine.TargetVelocity = engineSpeed * Engine.BaseSpeed;
 
 			if (DirectionSwitch.isOn) {
 				Engine.CurrentDirection = Direction.Right;
@@ -86,7 +89,7 @@ public class WorldController : MonoBehaviour
 
 	public static void ForceFullstop() {
 		SpeedSlider.mainSlider.value = 0;
-		Instance.Engine.Speed = 0;
+		Instance.Engine.Velocity = 0;
 	}
 
 	public void Pause() {
@@ -94,6 +97,8 @@ public class WorldController : MonoBehaviour
 		DirectionSwitch.switchButton.enabled = false;
 
 		PausePanel.SetActive(true);
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 		Paused = true;
 	}
 
@@ -102,6 +107,8 @@ public class WorldController : MonoBehaviour
 		DirectionSwitch.switchButton.enabled = true;
 
 		PausePanel.SetActive(false);
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 		Paused = false;
 	}
 

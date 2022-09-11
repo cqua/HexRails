@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
 
 	public float CamAngle = 180f;
 	float Speed = 90f;
+	public float CamHeight = 10f;
 
     // Start is called before the first frame update
     void Start() {
@@ -22,12 +23,24 @@ public class CameraController : MonoBehaviour {
 
         Vector3 ppos = PlayerEngine.transform.position;
 
-		float TargetAngle;
-		if (PlayerEngine.Speed >= 0) {
-			TargetAngle = 270 - PlayerEngine.transform.rotation.eulerAngles.y;
-		} else if (PlayerEngine.Speed < 0) {
-			TargetAngle = 90 - PlayerEngine.transform.rotation.eulerAngles.y;
-		} else TargetAngle = CamAngle;
+		CamAngle = CamAngle + Input.GetAxis("Mouse X") * -10f;
+
+		float deltaY = Input.GetAxis("Mouse Y") * -1;
+		if ((CamHeight < 18 && deltaY > 0) || (CamHeight > 2 && deltaY < 0)) {
+			if(CamHeight + deltaY > 18) {
+				CamHeight = 18;
+			} else if (CamHeight + deltaY < 2) {
+				CamHeight = 2;
+			} else {
+				CamHeight += deltaY;
+			}
+		}
+
+		//if (PlayerEngine.Speed >= 0) {
+		//	TargetAngle = 270 - PlayerEngine.transform.rotation.eulerAngles.y;
+		//} else if (PlayerEngine.Speed < 0) {
+		//	TargetAngle = 90 - PlayerEngine.transform.rotation.eulerAngles.y;
+		//} else TargetAngle = CamAngle;
 
 		//if(TargetAngle > 180) {
 		//	TargetAngle -= 360;
@@ -41,29 +54,29 @@ public class CameraController : MonoBehaviour {
 		//	CamAngle -= 360;
 		//}
 
-		float frameSpeed = Speed * Time.deltaTime;// * Mathf.Abs(CamAngle - TargetAngle) / TargetAngle;
+		//float frameSpeed = Speed * Time.deltaTime;// * Mathf.Abs(CamAngle - TargetAngle) / TargetAngle;
 
-		if (CamAngle + frameSpeed < TargetAngle) {
-			CamAngle += frameSpeed;
-		} else if (CamAngle - frameSpeed > TargetAngle) {
-			CamAngle -= frameSpeed;
-		}
+		//if (CamAngle + frameSpeed < TargetAngle) {
+		//	CamAngle += frameSpeed;
+		//} else if (CamAngle - frameSpeed > TargetAngle) {
+		//	CamAngle -= frameSpeed;
+		//}
 
 		//CamAngle = 270 - PlayerEngine.transform.rotation.eulerAngles.y;
 
 		transform.position = new Vector3(
-			ppos.x + CameraMaxDistance * Mathf.Cos(CamAngle * Mathf.PI / 180f), 5,
+			ppos.x + CameraMaxDistance * Mathf.Cos(CamAngle * Mathf.PI / 180f), CamHeight,
 			ppos.z + CameraMaxDistance * Mathf.Sin(CamAngle * Mathf.PI / 180f));
 
-		oX = CamAngle;
-		oY = TargetAngle;
-		oZ = PlayerEngine.transform.rotation.eulerAngles.z;
-		oW = PlayerEngine.transform.rotation.w * 180 / Mathf.PI;
+		//oX = CamAngle;
+		//oY = TargetAngle;
+		//oZ = PlayerEngine.transform.rotation.eulerAngles.z;
+		//oW = PlayerEngine.transform.rotation.w * 180 / Mathf.PI;
 
 		transform.LookAt(PlayerEngine.transform);
 
 		transform.position = new Vector3(
-			transform.position.x, 10,
+			transform.position.x, CamHeight + 5,
 			transform.position.z);
 		//transform.rotation = new Quaternion(oX != -1 ? oX : PlayerEngine.transform.rotation.x,
 		//	oY != -1 ? oY : PlayerEngine.transform.rotation.y,

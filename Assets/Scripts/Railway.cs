@@ -65,7 +65,7 @@ public abstract class Railway : MonoBehaviour {
 			if (Length == 1 || t + 1 >= Length) {
 				return transform.position + Points[0];
 			}
-			return transform.position + Points[Mathf.CeilToInt(t)];
+			return transform.position + Points[Length - Mathf.CeilToInt(t)];
 		}
 	}
 

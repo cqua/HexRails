@@ -7,7 +7,7 @@ public class RailCar : MonoBehaviour {
 
 	public bool IsEngine { get { return TargetConnection == null; } }
 
-	public float BaseSpeed = 2f, Speed = 1;
+	public float BaseSpeed = 2f, Velocity = 1, TargetVelocity = 1;
 
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
@@ -29,10 +29,17 @@ public class RailCar : MonoBehaviour {
 		if (WorldController.Paused) return;
 
 		if (TargetConnection == null) {
+			if(Velocity != TargetVelocity) {
+				if(Mathf.Abs(Velocity - TargetVelocity) < .0001f) {
+					Velocity = TargetVelocity;
+				} else {
+					Velocity = Velocity + (TargetVelocity - Velocity) / 16f;
+				}
+			}
 		}
 		else 
-		{ 
-			Speed = TargetConnection.Speed;
+		{
+			Velocity = TargetConnection.Velocity;
 			CurrentDirection = TargetConnection.CurrentDirection;
 			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
 			//progress = TargetConnection.progress - SpaceBetwixtCars;
@@ -48,9 +55,9 @@ public class RailCar : MonoBehaviour {
 			}
 		}
 
-		progress += (Time.deltaTime) * Speed;
+		progress += (Time.deltaTime) * Velocity;
 
-		if (Railway.CarHasLeftRail(progress) && Speed != 0) {
+		if (Railway.CarHasLeftRail(progress) && Velocity != 0) {
 
 			var nextRail = Railway.GetNextRail(this);
 			
@@ -59,7 +66,7 @@ public class RailCar : MonoBehaviour {
 				WorldController.ForceFullstop();
 
 				if(CurrentOrientation == Orientation.Forward) {
-					progress = (Time.deltaTime) * Speed + .01f;
+					progress = (Time.deltaTime) * Velocity + .01f;
 				} else {
 					progress = Railway.Length;
 				}
