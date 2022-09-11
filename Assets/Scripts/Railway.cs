@@ -86,4 +86,17 @@ public abstract class Railway : MonoBehaviour {
 	}
 
 	public abstract Railway GetNextRail(RailCar car);
+
+	public float GetDistanceOfCurrentSpan(float t, bool reverse = false) {
+		if (!reverse) {
+			if (Length == 1 || t + 1 >= Length)
+				return Vector3.Distance(Points[Length -1], Points[Length]);
+			return Vector3.Distance(Points[Mathf.CeilToInt(t)], Points[Mathf.CeilToInt(t+1)]);
+		} else {
+			if (Length == 1 || t + 1 >= Length) {
+				return Vector3.Distance(Points[0], Points[1]);
+			}
+			return Vector3.Distance(Points[Length - Mathf.CeilToInt(t) - 1], Points[Length - Mathf.CeilToInt(t)]);
+		}
+	}
 }

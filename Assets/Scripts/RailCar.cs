@@ -48,7 +48,10 @@ public class RailCar : MonoBehaviour {
 					* (TargetVelocity - InitialVelocity) + InitialVelocity;
 			} else {
 				Velocity = TargetVelocity;
+				//Debug.Log(Railway.GetDistanceOfCurrentSpan(progress));
 			}
+
+			progress += (Time.deltaTime) * Velocity * 16f / Railway.GetDistanceOfCurrentSpan(progress);
 		}
 		else 
 		{
@@ -59,16 +62,12 @@ public class RailCar : MonoBehaviour {
 			if (Railway == TargetConnection.Railway) {
 				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				if (progress > TargetConnection.progress - SpaceBetwixtCars) {
-					progress = TargetConnection.progress - SpaceBetwixtCars;
-				}
-				if (progress < TargetConnection.progress - SpaceBetwixtCars) {
-					progress = TargetConnection.progress - SpaceBetwixtCars;
-				}
+				progress = (TargetConnection.progress - SpaceBetwixtCars * 16f / Railway.GetDistanceOfCurrentSpan(progress));
+			} else {
+
+				progress += (Time.deltaTime) * Velocity * 16f / Railway.GetDistanceOfCurrentSpan(progress);
 			}
 		}
-
-		progress += (Time.deltaTime) * Velocity;
 
 		if (Railway.CarHasLeftRail(progress) && Velocity != 0) {
 

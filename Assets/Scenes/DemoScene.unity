@@ -4897,7 +4897,9 @@ MonoBehaviour:
   IsStation: 0
   Points:
   - {x: 21.86, y: 0, z: -21.86}
+  - {x: 13.52647, y: 0, z: -18.603928}
   - {x: 8, y: 0, z: -13.86}
+  - {x: 3.1137848, y: 0, z: -7.906067}
   - {x: 0, y: 0, z: 0}
   ExitRailTopLeft: {fileID: 2010478698}
   ExitRailTopLeftToIntersection: 1
@@ -6299,12 +6301,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Railway: {fileID: 1005061055}
   BaseSpeed: 2
-  Velocity: 1
-  TargetVelocity: 1
+  Velocity: 0
+  TargetVelocity: 0
   Acceleration: 0
   InitialVelocity: 0
   CurrentDirection: 0
-  CurrentOrientation: 1
+  CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
   SpaceBetwixtCars: 0.22
