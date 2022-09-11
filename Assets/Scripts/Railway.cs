@@ -6,6 +6,8 @@ using Helpers;
 public abstract class Railway : MonoBehaviour {
 	public int railModelFrequency = 30;
 
+	public bool IsStation;
+
 	public List<Vector3> Points;
 	public int Length { get { return Points == null ? 0 : Points.Count - 1; } }
 
@@ -16,7 +18,9 @@ public abstract class Railway : MonoBehaviour {
 	}
 
 	private void Awake() {
-		Object railPrefab = Resources.Load<Object>("Prefabs/Rail");
+		string railPrefabPath = IsStation ? "Prefabs/Rail-Red" 
+			: "Prefabs/Rail";
+		Object railPrefab = Resources.Load<Object>(railPrefabPath);
 
 		if(railPrefab == null) {
 			Debug.LogError("Failed to load Rail prefab.");
