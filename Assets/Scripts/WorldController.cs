@@ -77,7 +77,7 @@ public class WorldController : MonoBehaviour
 					break;
 			}
 
-			Engine.TargetVelocity = engineSpeed * Engine.BaseSpeed;
+			Engine.SetTargetVelocity(engineSpeed * Engine.BaseSpeed);
 
 			if (DirectionSwitch.isOn) {
 				Engine.CurrentDirection = Direction.Right;

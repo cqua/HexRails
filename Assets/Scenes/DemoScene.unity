@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4392157, g: 0.45882353, b: 0.6509804, a: 1}
+  m_Color: {r: 1, g: 0.99215686, b: 0.4862745, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2745,7 +2745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4392157, g: 0.45882353, b: 0.6509804, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4313,7 +4313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.99215686, b: 0.4862745, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4386,7 +4386,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.019607844}
@@ -5956,11 +5956,15 @@ MonoBehaviour:
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
+  Acceleration: 0
+  InitialVelocity: 0
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0
   TargetConnection: {fileID: 1002881967388732088}
   SpaceBetwixtCars: 0.7
+  TimeSinceVelocityWasSet: 0
+  AccelerationModifier: 3
 --- !u!33 &1002881966010705474
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6229,11 +6233,15 @@ MonoBehaviour:
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
+  Acceleration: 0
+  InitialVelocity: 0
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0
   TargetConnection: {fileID: 4526511914853988825}
   SpaceBetwixtCars: 0.11
+  TimeSinceVelocityWasSet: 0
+  AccelerationModifier: 3
 --- !u!4 &1160799822725443987
 Transform:
   m_ObjectHideFlags: 0
@@ -6293,11 +6301,15 @@ MonoBehaviour:
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
+  Acceleration: 0
+  InitialVelocity: 0
   CurrentDirection: 0
   CurrentOrientation: 1
   progress: 0.5
   TargetConnection: {fileID: 0}
   SpaceBetwixtCars: 0.22
+  TimeSinceVelocityWasSet: 0
+  AccelerationModifier: 3
 --- !u!33 &7002493175218732911
 MeshFilter:
   m_ObjectHideFlags: 0
