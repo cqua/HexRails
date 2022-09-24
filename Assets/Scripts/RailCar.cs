@@ -9,6 +9,7 @@ public class RailCar : MonoBehaviour {
 
 	public float BaseSpeed = 2f, Velocity = 0f, TargetVelocity = 0f, Acceleration = 0f;
 	public float InitialVelocity = 0f;
+	Vector3 TargetDirection, cu;
 
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
@@ -90,6 +91,8 @@ public class RailCar : MonoBehaviour {
 
 		Vector3 position = Railway.GetPoint(progress, CurrentOrientation == Orientation.Reverse);
 		transform.localPosition = position;
+
+
 		transform.LookAt(Railway.GetDirection(progress, CurrentOrientation == Orientation.Reverse));
 	}
 
