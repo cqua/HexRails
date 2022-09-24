@@ -96,16 +96,23 @@ public class BezierSpline {
 
 	public Vector3 GetPoint (float t) {
 		int i;
-		//Debug.Log(t);
+		if (float.IsNaN(t)) return Vector3.zero;
+		if (float.IsInfinity(t)) return Vector3.zero;
 		if (t >= 1f) {
 			t = 1f;
 			i = points.Length - 4;
+		} else if(t <= 0f) {
+			t = 0f;
+			i = 0;
 		}
 		else {
 			t = Mathf.Clamp01(t) * CurveCount;
 			i = (int)t;
 			t -= i;
 			i *= 3;
+			if(i > points.Length - 4) {
+				i = points.Length - 4;
+			}
 		}
 		return Bezier.GetPoint(points[i], points[i + 1], points[i + 2], points[i + 3], t);
 	}

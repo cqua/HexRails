@@ -106,7 +106,7 @@ public abstract class RailSpline : MonoBehaviour {
 		//	return 4f / Vector3.Distance(Spline.GetPoint(0), Spline.GetPoint(.01f));
 		//if(t>1)
 		//	return 4f / Vector3.Distance(Spline.GetPoint(.99f), Spline.GetPoint(1f));
-
-		return 4f / Vector3.Distance(Spline.GetPoint(t - .001f), Spline.GetPoint(t + .001f));
+		if(Vector3.Distance(Spline.GetPoint(t - .01f), Spline.GetPoint(t + .01f)) == 0) return 0;
+		return 4f / Vector3.Distance(Spline.GetPoint(t - .01f), Spline.GetPoint(t + .01f));
 	}
 }

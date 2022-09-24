@@ -14,18 +14,17 @@ public class RailCar : MonoBehaviour {
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
 
-	public float progress = 0;
+	public float progress = 0.5f;
 
 	public RailCar TargetConnection;
 
-	public float SpaceBetwixtCars = .22f;
+	public float SpaceBetwixtCars = .02f;
 
 	public float TimeSinceVelocityWasSet = 0f;
 
 	public float AccelerationModifier = 3f;
 
 	private void Awake() {
-		progress = 0;
 		if(TargetConnection != null) {
 			Railway = TargetConnection.Railway;
 			progress = TargetConnection.progress - SpaceBetwixtCars;

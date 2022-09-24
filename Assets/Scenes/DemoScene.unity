@@ -5644,8 +5644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Points:
   - {x: -16, y: 0, z: 0}
-  - {x: -19.804321, y: 0, z: -42.395164}
-  - {x: 5.227416, y: 0, z: -121.94856}
+  - {x: -16, y: 0, z: -16}
+  - {x: 16, y: 0, z: -16}
   - {x: 16, y: 0, z: 0}
   railModelFrequency: 30
   IsStation: 0
@@ -6450,7 +6450,7 @@ MonoBehaviour:
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
-  SpaceBetwixtCars: 0.01
+  SpaceBetwixtCars: 0.02
   TimeSinceVelocityWasSet: 0
   AccelerationModifier: 3
 --- !u!33 &7002493175218732911
