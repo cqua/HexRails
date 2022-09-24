@@ -3,11 +3,11 @@ using Michsky.UI.ModernUIPack;
 
 public class RailCar : MonoBehaviour {
 
-	public Railway Railway;
+	public RailSpline Railway;
 
 	public bool IsEngine { get { return TargetConnection == null; } }
 
-	public float BaseSpeed = 2f, Velocity = 0f, TargetVelocity = 0f, Acceleration = 0f;
+	public float BaseSpeed = .8f, Velocity = 0f, TargetVelocity = 0f, Acceleration = 0f;
 	public float InitialVelocity = 0f;
 	Vector3 TargetDirection, cu;
 
@@ -25,6 +25,7 @@ public class RailCar : MonoBehaviour {
 	public float AccelerationModifier = 3f;
 
 	private void Awake() {
+		progress = 0;
 		if(TargetConnection != null) {
 			Railway = TargetConnection.Railway;
 			progress = TargetConnection.progress - SpaceBetwixtCars;
@@ -52,7 +53,7 @@ public class RailCar : MonoBehaviour {
 				//Debug.Log(Railway.GetDistanceOfCurrentSpan(progress));
 			}
 
-			progress += (Time.deltaTime) * Velocity * 16f / Railway.GetDistanceOfCurrentSpan(progress);
+			progress += (Time.deltaTime) * Velocity * Railway.SpeedModAtProgress(progress);
 		}
 		else 
 		{
@@ -63,10 +64,10 @@ public class RailCar : MonoBehaviour {
 			if (Railway == TargetConnection.Railway) {
 				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				progress = (TargetConnection.progress - SpaceBetwixtCars * 16f / Railway.GetDistanceOfCurrentSpan(progress));
+				progress = (TargetConnection.progress - SpaceBetwixtCars * Railway.SpeedModAtProgress(progress));
 			} else {
 
-				progress += (Time.deltaTime) * Velocity * 16f / Railway.GetDistanceOfCurrentSpan(progress);
+				progress += (Time.deltaTime) * Velocity * Railway.SpeedModAtProgress(progress);
 			}
 		}
 
@@ -81,7 +82,7 @@ public class RailCar : MonoBehaviour {
 				if(CurrentOrientation == Orientation.Forward) {
 					progress = (Time.deltaTime) * Velocity + .01f;
 				} else {
-					progress = Railway.Length;
+					progress = 1;
 				}
 			} else {
 				// continue onto rail

@@ -228,8 +228,8 @@ Transform:
   - {fileID: 612327697}
   - {fileID: 789071228}
   - {fileID: 389810682}
-  - {fileID: 1696550161}
-  - {fileID: 487482235}
+  - {fileID: 920059644}
+  - {fileID: 2018372469}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -880,7 +880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &389810682
 Transform:
   m_ObjectHideFlags: 0
@@ -983,57 +983,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474051850}
   m_CullTransparentMesh: 0
---- !u!1 &487482234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 487482235}
-  - component: {fileID: 487482236}
-  m_Layer: 0
-  m_Name: 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &487482235
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487482234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 132552363}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &487482236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487482234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abccca5988c0a43459bbf72be60b75b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: -16, y: 0, z: 0}
-  - {x: -16, y: 0, z: 16}
-  - {x: 16, y: 0, z: 16}
-  - {x: 16, y: 0, z: 0}
-  modes: 0000000000000000
-  loop: 0
-  Scale: 1
 --- !u!1 &547175844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2092,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889767485}
   m_CullTransparentMesh: 0
+--- !u!1 &920059643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920059644}
+  - component: {fileID: 920059645}
+  m_Layer: 0
+  m_Name: Splinerail 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920059644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920059643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132552363}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920059645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920059643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points:
+  - {x: 16, y: 0, z: 0}
+  - {x: 16, y: 0, z: 16}
+  - {x: -16, y: 0, z: 16}
+  - {x: -16, y: 0, z: 0}
+  railModelFrequency: 30
+  IsStation: 0
+  ExitRailTop: {fileID: 2018372470}
+  ExitRailTopToIntersection: 0
+  ExitRailBottom: {fileID: 2018372470}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &927122654
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,57 +4771,6 @@ Transform:
   m_Father: {fileID: 1639027889}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1696550160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1696550161}
-  - component: {fileID: 1696550162}
-  m_Layer: 0
-  m_Name: 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1696550161
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696550160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 132552363}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696550162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696550160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abccca5988c0a43459bbf72be60b75b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: -16, y: 0, z: 0}
-  - {x: -16, y: 0, z: -16}
-  - {x: 16, y: 0, z: -16}
-  - {x: 16, y: 0, z: 0}
-  modes: 0000000000000000
-  loop: 0
-  Scale: 1
 --- !u!1 &1739032154
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,6 +5599,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013302384}
   m_CullTransparentMesh: 1
+--- !u!1 &2018372468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018372469}
+  - component: {fileID: 2018372470}
+  m_Layer: 0
+  m_Name: Splinerail 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018372469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018372468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132552363}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018372470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018372468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points:
+  - {x: -16, y: 0, z: 0}
+  - {x: -19.804321, y: 0, z: -42.395164}
+  - {x: 5.227416, y: 0, z: -121.94856}
+  - {x: 16, y: 0, z: 0}
+  railModelFrequency: 30
+  IsStation: 0
+  ExitRailTop: {fileID: 920059645}
+  ExitRailTopToIntersection: 0
+  ExitRailBottom: {fileID: 920059645}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &2057108870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,7 +6095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Railway: {fileID: 1005061055}
+  Railway: {fileID: 920059645}
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
@@ -6366,7 +6372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Railway: {fileID: 1005061055}
+  Railway: {fileID: 920059645}
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
@@ -6434,8 +6440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Railway: {fileID: 1005061055}
-  BaseSpeed: 2
+  Railway: {fileID: 920059645}
+  BaseSpeed: 0.2
   Velocity: 0
   TargetVelocity: 0
   Acceleration: 0
@@ -6444,7 +6450,7 @@ MonoBehaviour:
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
-  SpaceBetwixtCars: 0.22
+  SpaceBetwixtCars: 0.01
   TimeSinceVelocityWasSet: 0
   AccelerationModifier: 3
 --- !u!33 &7002493175218732911
