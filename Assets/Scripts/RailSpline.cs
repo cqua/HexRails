@@ -4,13 +4,14 @@ using UnityEngine;
 using Helpers;
 
 public abstract class RailSpline : MonoBehaviour {
+
+	float railModelFrequency = .1f;
+
+	public bool IsStation;
+
 	protected BezierSpline Spline;
 
 	public List<Vector3> Points;
-
-	public float railModelFrequency = .1f;
-
-	public bool IsStation;
 
 	private void Awake() {
 		Spline = new BezierSpline();
@@ -30,12 +31,12 @@ public abstract class RailSpline : MonoBehaviour {
 				if(distance > railModelFrequency) {
 					distance = 0;
 					GameObject item = Instantiate(railPrefab) as GameObject;
-					Vector3 position = Spline.GetPoint(t);
+					Vector3 position = GetPoint(t);
 					item.transform.localPosition = position;
 					item.transform.LookAt(GetDirection(t));
 					item.transform.parent = this.transform;
 				}
-				t += .0001f;
+				t += .001f;
 			}
 			for (int p = 0, f = 0; f < railModelFrequency; f++, p++) {
 			}
@@ -58,18 +59,18 @@ public abstract class RailSpline : MonoBehaviour {
 			t = 1 - t;
 		
 		if (t >= 1) {
-			return Spline.GetPoint(1);
+			return Spline.GetPoint(1) + transform.position;
 		}
 
-		return Spline.GetPoint(t);
+		return Spline.GetPoint(t) + transform.position;
 	}
 
 	public Vector3 GetDirection(float t, bool reverse = false) {
 		if (!reverse) {
-			return Spline.GetPoint(t + .001f);
+			return Spline.GetPoint(t + .001f) + transform.position;
 			//return Spline.GetVelocity(t);
 		} else {
-			return Spline.GetPoint(t - .001f);
+			return Spline.GetPoint(1 - t - .001f) + transform.position;
 			//return Spline.GetVelocity(t) * -1;
 		}
 	}
@@ -106,7 +107,13 @@ public abstract class RailSpline : MonoBehaviour {
 		//	return 4f / Vector3.Distance(Spline.GetPoint(0), Spline.GetPoint(.01f));
 		//if(t>1)
 		//	return 4f / Vector3.Distance(Spline.GetPoint(.99f), Spline.GetPoint(1f));
-		if(Vector3.Distance(Spline.GetPoint(t - .01f), Spline.GetPoint(t + .01f)) == 0) return 0;
-		return 4f / Vector3.Distance(Spline.GetPoint(t - .01f), Spline.GetPoint(t + .01f));
+		float M = .01f;
+
+		float distance = Vector3.Distance(GetPoint(t), GetPoint(t + M));
+		if(distance == 0 || M*400/distance < 1) {
+			distance = Vector3.Distance(GetPoint(t - M), GetPoint(t));
+		}
+		if (distance == 0) return 0;
+		return M *400/ distance;
 	}
 }

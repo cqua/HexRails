@@ -18,11 +18,12 @@ public class RailCar : MonoBehaviour {
 
 	public RailCar TargetConnection;
 
-	public float SpaceBetwixtCars = .02f;
+	public float SpaceBetwixtCars = .009f;
 
 	public float TimeSinceVelocityWasSet = 0f;
 
 	public float AccelerationModifier = 3f;
+	public float speedmod;
 
 	private void Awake() {
 		if(TargetConnection != null) {
@@ -51,8 +52,8 @@ public class RailCar : MonoBehaviour {
 				Velocity = TargetVelocity;
 				//Debug.Log(Railway.GetDistanceOfCurrentSpan(progress));
 			}
-
-			progress += (Time.deltaTime) * Velocity * Railway.SpeedModAtProgress(progress);
+			speedmod = Railway.SpeedModAtProgress(progress);
+			progress += (Time.deltaTime) * Velocity * speedmod;
 		}
 		else 
 		{
@@ -60,13 +61,18 @@ public class RailCar : MonoBehaviour {
 			CurrentDirection = TargetConnection.CurrentDirection;
 			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
 			//progress = TargetConnection.progress - SpaceBetwixtCars;
-			if (Railway == TargetConnection.Railway) {
+			speedmod = TargetConnection.speedmod;
+
+			float distanceFromConnection = TargetConnection.progress - SpaceBetwixtCars * speedmod;
+
+			if (Railway == TargetConnection.Railway || (distanceFromConnection > 0 && distanceFromConnection < 1)) {
+				Railway = TargetConnection.Railway;
 				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				progress = (TargetConnection.progress - SpaceBetwixtCars * Railway.SpeedModAtProgress(progress));
+				progress = (TargetConnection.progress - SpaceBetwixtCars * speedmod);
 			} else {
 
-				progress += (Time.deltaTime) * Velocity * Railway.SpeedModAtProgress(progress);
+				progress += (Time.deltaTime) * Velocity * speedmod;
 			}
 		}
 

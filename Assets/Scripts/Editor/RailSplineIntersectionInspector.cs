@@ -2,11 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(RailSplineThroughway))]
-public class RailSplineThroughwayInspector : Editor {
+[CustomEditor(typeof(RailSplineIntersection))]
+public class RailSplineIntersectionInspector : Editor {
 
 	private void OnSceneGUI () {
-		RailSplineThroughway railway = target as RailSplineThroughway;
+		RailSplineIntersection railway = target as RailSplineIntersection;
 		Transform handleTransform = railway.transform;
 		Quaternion handleRotation = Tools.pivotRotation == PivotRotation.Local ? handleTransform.rotation : Quaternion.identity;
 
@@ -21,7 +21,7 @@ public class RailSplineThroughwayInspector : Editor {
 			Handles.color = Color.white;
 
 			for (float i = 0; i < 1; i+=.01f) {
-				Handles.DrawLine(spline.GetPoint(i) + handleTransform.position, spline.GetPoint(i + .01f) + handleTransform.position);
+				Handles.DrawLine(spline.GetPoint(i) + handleTransform.position, spline.GetPoint(i+.01f) + handleTransform.position);
 			}
 
 			for (int i = 0; i < points.Count; i++) {

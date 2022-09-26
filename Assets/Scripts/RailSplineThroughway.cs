@@ -21,25 +21,25 @@ public class RailSplineThroughway : RailSpline {
 			t = 1 - t;
 
 		if(float.IsNaN(t)) {
-			return Vector3.zero;
+			return transform.position;
 		}
 
 		if (float.IsInfinity(t)) {
-			return Vector3.zero;
+			return transform.position;
 		}
 
 		if (t < 0) {
 			if(Bottom != null)
 				return Bottom.To.GetPoint(Mathf.CeilToInt(t) - t, (Bottom.FromAnIntersection || Bottom.ToAnIntersection) ? reverse : !reverse);
-			return Spline.GetPoint(0);
+			t = 0;
 		}
 		if (t >= 1) {
 			if (Top != null)
 				return Top.To.GetPoint(t - Mathf.FloorToInt(t), (Bottom.FromAnIntersection || Bottom.ToAnIntersection) ? reverse : !reverse);
-			return Spline.GetPoint(1);
+			t = 1;
 		}
 
-		return Spline.GetPoint(t);
+		return Spline.GetPoint(t) + transform.position;
 	}
 
 	public override RailSpline GetNextRail(RailCar car) {

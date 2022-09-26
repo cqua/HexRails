@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9770184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9770185}
+  - component: {fileID: 9770186}
+  m_Layer: 0
+  m_Name: Pho Southeast Connector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9770185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9770184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9770186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9770184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -0.5361328, y: 0, z: -13.226133}
+  - {x: -8.159599, y: 0, z: -21.33115}
+  - {x: -21.86, y: 0, z: -21.86}
+  ExitRailTop: {fileID: 839918764}
+  ExitRailTopToIntersection: 1
+  ExitRailBottom: {fileID: 1382294847}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &117298721
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,8 +281,7 @@ Transform:
   - {fileID: 612327697}
   - {fileID: 789071228}
   - {fileID: 389810682}
-  - {fileID: 920059644}
-  - {fileID: 2018372469}
+  - {fileID: 466249664}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -358,6 +410,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153848999}
   m_CullTransparentMesh: 0
+--- !u!1 &173113233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173113234}
+  - component: {fileID: 173113235}
+  m_Layer: 0
+  m_Name: Pho Northeast IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173113234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173113233}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &173113235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173113233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: -21.86, y: 0, z: 21.86}
+  - {x: -10.904064, y: 0, z: 21.360817}
+  - {x: -0.984416, y: 0, z: 10.760887}
+  - {x: 0, y: 0, z: 0}
+  ExitRailTopLeft: {fileID: 869202493}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 1382294847}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 1108051049}
+  ExitRailBottomToIntersection: 0
 --- !u!1 &178056818
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +1015,102 @@ Transform:
   m_Father: {fileID: 132552363}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &466249663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466249664}
+  m_Layer: 0
+  m_Name: PhoDei Spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466249664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466249663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 920059644}
+  - {fileID: 1382294846}
+  - {fileID: 173113234}
+  - {fileID: 1108051048}
+  - {fileID: 839918763}
+  - {fileID: 9770185}
+  - {fileID: 1949654474}
+  - {fileID: 869202492}
+  - {fileID: 1971181397}
+  - {fileID: 1939998287}
+  - {fileID: 470010983}
+  - {fileID: 907811268}
+  - {fileID: 1248902339}
+  m_Father: {fileID: 132552363}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &470010982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 470010983}
+  - component: {fileID: 470010984}
+  m_Layer: 0
+  m_Name: Dei Station
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &470010983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470010982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.86, y: 0, z: -53.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &470010984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470010982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 1
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 8, y: 0, z: 0}
+  - {x: 8, y: 0, z: 0}
+  - {x: 16, y: 0, z: 0}
+  ExitRailTop: {fileID: 907811269}
+  ExitRailTopToIntersection: 0
+  ExitRailBottom: {fileID: 1939998288}
+  ExitRailBottomToIntersection: 0
 --- !u!1 &474051850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1973,61 @@ Transform:
   m_Father: {fileID: 132552363}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &839918762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839918763}
+  - component: {fileID: 839918764}
+  m_Layer: 0
+  m_Name: Pho West IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839918763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839918762}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.86, y: 0, z: 53.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839918764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839918762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -25.417355, y: 0, z: -8.099823}
+  - {x: -16.386127, y: 0, z: -59.67808}
+  - {x: 16, y: 0, z: -59.712}
+  ExitRailTopLeft: {fileID: 9770186}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 1949654475}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 1108051049}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &846349082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +2177,59 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &869202491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869202492}
+  - component: {fileID: 869202493}
+  m_Layer: 0
+  m_Name: Noreast Connector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869202492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869202491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869202493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869202491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 21.86, y: 0, z: 5.852}
+  - {x: 11.500905, y: 0, z: 4.935854}
+  - {x: -1.5059032, y: 0, z: 11.722537}
+  - {x: 0, y: 0, z: 32}
+  ExitRailTop: {fileID: 173113235}
+  ExitRailTopToIntersection: 1
+  ExitRailBottom: {fileID: 907811269}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &889767485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2403,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889767485}
   m_CullTransparentMesh: 0
+--- !u!1 &907811267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907811268}
+  - component: {fileID: 907811269}
+  m_Layer: 0
+  m_Name: Dei East IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &907811268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907811267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.86, y: 0, z: -53.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907811269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907811267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 25.41735, y: 0, z: 8.099823}
+  - {x: 16.38613, y: 0, z: 59.67808}
+  - {x: -16, y: 0, z: 59.712}
+  ExitRailTopLeft: {fileID: 1248902340}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 869202493}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 470010984}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &920059643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2469,7 @@ GameObject:
   - component: {fileID: 920059644}
   - component: {fileID: 920059645}
   m_Layer: 0
-  m_Name: Splinerail 1
+  m_Name: Central Throughway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2116,12 +2482,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920059643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 132552363}
-  m_RootOrder: 3
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &920059645
 MonoBehaviour:
@@ -2135,16 +2501,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points:
-  - {x: 16, y: 0, z: 0}
-  - {x: 16, y: 0, z: 16}
-  - {x: -16, y: 0, z: 16}
-  - {x: -16, y: 0, z: 0}
-  railModelFrequency: 30
   IsStation: 0
-  ExitRailTop: {fileID: 2018372470}
-  ExitRailTopToIntersection: 0
-  ExitRailBottom: {fileID: 2018372470}
+  Points:
+  - {x: 0, y: 0, z: -16}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 16}
+  ExitRailTop: {fileID: 1382294847}
+  ExitRailTopToIntersection: 1
+  ExitRailBottom: {fileID: 1971181398}
   ExitRailBottomToIntersection: 1
 --- !u!1 &927122654
 GameObject:
@@ -2765,6 +3130,59 @@ MonoBehaviour:
   ExitRailTopRight: {fileID: 1565758468}
   ExitRailTopRightToIntersection: 1
   ExitRailBottom: {fileID: 0}
+  ExitRailBottomToIntersection: 0
+--- !u!1 &1108051047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108051048}
+  - component: {fileID: 1108051049}
+  m_Layer: 0
+  m_Name: Pho Station
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108051048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108051047}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.86, y: 0, z: 53.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108051049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108051047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 1
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -2.5043259, y: 0, z: -0.18670654}
+  - {x: -13.255966, y: 0, z: 0.12615967}
+  - {x: -16, y: 0, z: 0}
+  ExitRailTop: {fileID: 839918764}
+  ExitRailTopToIntersection: 0
+  ExitRailBottom: {fileID: 173113235}
   ExitRailBottomToIntersection: 0
 --- !u!54 &1117797178
 Rigidbody:
@@ -3454,6 +3872,59 @@ MonoBehaviour:
   ExitRailTopRightToIntersection: 0
   ExitRailBottom: {fileID: 1954250834}
   ExitRailBottomToIntersection: 0
+--- !u!1 &1248902338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248902339}
+  - component: {fileID: 1248902340}
+  m_Layer: 0
+  m_Name: Dei Northwest Connector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248902339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248902338}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248902340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248902338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0.5361328, y: 0, z: 13.22613}
+  - {x: 8.159599, y: 0, z: 21.33115}
+  - {x: 21.86, y: 0, z: 21.86}
+  ExitRailTop: {fileID: 907811269}
+  ExitRailTopToIntersection: 1
+  ExitRailBottom: {fileID: 1971181398}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &1336713289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +4020,61 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336713289}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1382294845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382294846}
+  - component: {fileID: 1382294847}
+  m_Layer: 0
+  m_Name: Pho East IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1382294846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382294845}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1382294847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382294845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: 16}
+  - {x: 0, y: 0, z: 8}
+  - {x: 0, y: 0, z: 8}
+  - {x: 0, y: 0, z: 0}
+  ExitRailTopLeft: {fileID: 920059645}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 9770186}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 173113235}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &1404958281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5710,114 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1939998286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939998287}
+  - component: {fileID: 1939998288}
+  m_Layer: 0
+  m_Name: Dei Southwest IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939998287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939998286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939998288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939998286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 21.86, y: 0, z: -21.86}
+  - {x: 10.90406, y: 0, z: -21.36082}
+  - {x: 0.984416, y: 0, z: -10.76089}
+  - {x: 0, y: 0, z: 0}
+  ExitRailTopLeft: {fileID: 1949654475}
+  ExitRailTopLeftToIntersection: 1
+  ExitRailTopRight: {fileID: 1971181398}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 470010984}
+  ExitRailBottomToIntersection: 0
+--- !u!1 &1949654473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949654474}
+  - component: {fileID: 1949654475}
+  m_Layer: 0
+  m_Name: Southwest Connector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1949654474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949654473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949654475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949654473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: -21.86, y: 0, z: -5.852}
+  - {x: -7.039094, y: 0, z: -7.0315075}
+  - {x: -0.22544575, y: 0, z: -10.832114}
+  - {x: 0, y: 0, z: -32}
+  ExitRailTop: {fileID: 1939998288}
+  ExitRailTopToIntersection: 1
+  ExitRailBottom: {fileID: 839918764}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &1954250832
 GameObject:
   m_ObjectHideFlags: 0
@@ -5236,6 +5870,61 @@ MonoBehaviour:
   ExitRailTopToIntersection: 0
   ExitRailBottom: {fileID: 1243566458}
   ExitRailBottomToIntersection: 0
+--- !u!1 &1971181396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971181397}
+  - component: {fileID: 1971181398}
+  m_Layer: 0
+  m_Name: Dei West IS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1971181397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971181396}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466249664}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971181398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971181396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b84f5a2499b14eaf631ba0d4b082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStation: 0
+  Points:
+  - {x: 0, y: 0, z: -16}
+  - {x: 0, y: 0, z: -8}
+  - {x: 0, y: 0, z: -8}
+  - {x: 0, y: 0, z: 0}
+  ExitRailTopLeft: {fileID: 920059645}
+  ExitRailTopLeftToIntersection: 0
+  ExitRailTopRight: {fileID: 1248902340}
+  ExitRailTopRightToIntersection: 0
+  ExitRailBottom: {fileID: 1939998288}
+  ExitRailBottomToIntersection: 1
 --- !u!1 &1972399477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,60 +6288,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013302384}
   m_CullTransparentMesh: 1
---- !u!1 &2018372468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018372469}
-  - component: {fileID: 2018372470}
-  m_Layer: 0
-  m_Name: Splinerail 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2018372469
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018372468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 132552363}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2018372470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018372468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abea4c707e2e35f42b2138fde9bebdfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Points:
-  - {x: -16, y: 0, z: 0}
-  - {x: -16, y: 0, z: -16}
-  - {x: 16, y: 0, z: -16}
-  - {x: 16, y: 0, z: 0}
-  railModelFrequency: 30
-  IsStation: 0
-  ExitRailTop: {fileID: 920059645}
-  ExitRailTopToIntersection: 0
-  ExitRailBottom: {fileID: 920059645}
-  ExitRailBottomToIntersection: 1
 --- !u!1 &2057108870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6103,11 +6738,12 @@ MonoBehaviour:
   InitialVelocity: 0
   CurrentDirection: 0
   CurrentOrientation: 0
-  progress: 0
+  progress: 0.5
   TargetConnection: {fileID: 1002881967388732088}
   SpaceBetwixtCars: 0.7
   TimeSinceVelocityWasSet: 0
   AccelerationModifier: 3
+  speedmod: 0
 --- !u!33 &1002881966010705474
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6380,11 +7016,12 @@ MonoBehaviour:
   InitialVelocity: 0
   CurrentDirection: 0
   CurrentOrientation: 0
-  progress: 0
+  progress: 0.5
   TargetConnection: {fileID: 4526511914853988825}
   SpaceBetwixtCars: 0.11
   TimeSinceVelocityWasSet: 0
   AccelerationModifier: 3
+  speedmod: 0
 --- !u!4 &1160799822725443987
 Transform:
   m_ObjectHideFlags: 0
@@ -6450,9 +7087,10 @@ MonoBehaviour:
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
-  SpaceBetwixtCars: 0.02
+  SpaceBetwixtCars: 0.009
   TimeSinceVelocityWasSet: 0
   AccelerationModifier: 3
+  speedmod: 0
 --- !u!33 &7002493175218732911
 MeshFilter:
   m_ObjectHideFlags: 0
