@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Helpers;
 
-public abstract class RailSpline : MonoBehaviour {
+public abstract class RailController : MonoBehaviour {
 
 	float railModelFrequency = .1f;
 
@@ -47,11 +47,11 @@ public abstract class RailSpline : MonoBehaviour {
 
 	protected abstract void InitializeExits();
 
-	protected virtual RailSplineExit CreateExit(RailSpline to, bool fromIntersection, bool toIntersection) {
+	protected virtual RailExit CreateExit(RailController to, bool fromIntersection, bool toIntersection) {
 		if(to == null) {
-			return new RailSplineExit();
+			return new RailExit();
 		}
-		return new RailSplineExit(this, to, fromIntersection, toIntersection);
+		return new RailExit(this, to, fromIntersection, toIntersection);
 	}
 
 	public virtual Vector3 GetPoint(float t, bool reverse = false) {
@@ -87,7 +87,7 @@ public abstract class RailSpline : MonoBehaviour {
 		return progress >= 1 || progress < 0;
 	}
 
-	public abstract RailSpline GetNextRail(RailCar car);
+	public abstract RailController GetNextRail(CarController car);
 
 	//public float GetDistanceOfCurrentSpan(float t, bool reverse = false) {
 	//	if (!reverse) {

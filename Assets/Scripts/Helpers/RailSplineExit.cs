@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Helpers {
-	public class RailSplineExit {
+﻿namespace Helpers {
+	public class RailExit {
 		public bool IsDeadEnd;
-		public RailSpline From, To;
+		public RailController From, To;
 		public bool FromAnIntersection, ToAnIntersection;
 
-		public RailSplineExit() {
+		public RailExit() {
 			IsDeadEnd = true;
 		}
 
-		public RailSplineExit(RailSpline _from, RailSpline _to, bool _fromInters, bool _toInters) {
+		public RailExit(RailController _from, RailController _to, bool _fromInters, bool _toInters) {
 			From = _from;
 			To = _to;
 			FromAnIntersection = _fromInters;

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Helpers;
 
-public class RailSplineThroughway : RailSpline {
-	RailSplineExit Bottom, Top;
+public class RailThroughwayController : RailController {
+	RailExit Bottom, Top;
 
-	public RailSpline ExitRailTop;
+	public RailController ExitRailTop;
 	public bool ExitRailTopToIntersection;
-	public RailSpline ExitRailBottom;
+	public RailController ExitRailBottom;
 	public bool ExitRailBottomToIntersection;
 
 	protected override void InitializeExits() {
@@ -42,7 +42,7 @@ public class RailSplineThroughway : RailSpline {
 		return Spline.GetPoint(t) + transform.position;
 	}
 
-	public override RailSpline GetNextRail(RailCar car) {
+	public override RailController GetNextRail(CarController car) {
 		float progress = car.progress;
 		if(car.CurrentOrientation == Orientation.Reverse) {
 			progress = 1 - progress;

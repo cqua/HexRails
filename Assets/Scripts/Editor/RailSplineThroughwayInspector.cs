@@ -2,11 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(RailSplineThroughway))]
+[CustomEditor(typeof(RailThroughwayController))]
 public class RailSplineThroughwayInspector : Editor {
 
 	private void OnSceneGUI () {
-		RailSplineThroughway railway = target as RailSplineThroughway;
+		RailThroughwayController railway = target as RailThroughwayController;
 		Transform handleTransform = railway.transform;
 		Quaternion handleRotation = Tools.pivotRotation == PivotRotation.Local ? handleTransform.rotation : Quaternion.identity;
 

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Michsky.UI.ModernUIPack;
 
-public class RailCar : MonoBehaviour {
+public class CarController : MonoBehaviour {
 
-	public RailSpline Railway;
+	public RailController Railway;
 
 	public bool IsEngine { get { return TargetConnection == null; } }
 
@@ -16,7 +16,7 @@ public class RailCar : MonoBehaviour {
 
 	public float progress = 0.5f;
 
-	public RailCar TargetConnection;
+	public CarController TargetConnection;
 
 	public float SpaceBetwixtCars = .009f;
 

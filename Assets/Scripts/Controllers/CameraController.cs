@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    RailCar PlayerEngine;
+    CarController PlayerEngine;
     float CameraMaxDistance = 30f;
 	public float oX, oY, oZ, oW;
 
 	public float CamAngle = 180f;
-	float Speed = 90f;
+	float Sensitivity = 1f;
 	public float CamHeight = 10f;
 
     // Start is called before the first frame update
     void Start() {
-        PlayerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<RailCar>();
+        PlayerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<CarController>();
     }
 
     // Update is called once per frame
@@ -23,9 +23,9 @@ public class CameraController : MonoBehaviour {
 
         Vector3 ppos = PlayerEngine.transform.position;
 
-		CamAngle = CamAngle + Input.GetAxis("Mouse X") * -10f;
+		CamAngle = CamAngle + Input.GetAxis("Mouse X") * -10f * Sensitivity;
 
-		float deltaY = Input.GetAxis("Mouse Y") * -1;
+		float deltaY = Input.GetAxis("Mouse Y") * -1 * Sensitivity;
 		if ((CamHeight < 18 && deltaY > 0) || (CamHeight > 2 && deltaY < 0)) {
 			if(CamHeight + deltaY > 18) {
 				CamHeight = 18;

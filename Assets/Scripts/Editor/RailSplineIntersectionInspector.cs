@@ -2,11 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(RailSplineIntersection))]
+[CustomEditor(typeof(RailIntersectionController))]
 public class RailSplineIntersectionInspector : Editor {
 
 	private void OnSceneGUI () {
-		RailSplineIntersection railway = target as RailSplineIntersection;
+		RailIntersectionController railway = target as RailIntersectionController;
 		Transform handleTransform = railway.transform;
 		Quaternion handleRotation = Tools.pivotRotation == PivotRotation.Local ? handleTransform.rotation : Quaternion.identity;
 

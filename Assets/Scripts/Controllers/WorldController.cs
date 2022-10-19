@@ -7,7 +7,7 @@ public class WorldController : MonoBehaviour
 {
     public static bool Paused = false;
 
-	public RailCar Engine;
+	public CarController Engine;
     public static SliderManager SpeedSlider;
     public static SwitchManager DirectionSwitch;
 
