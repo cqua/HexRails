@@ -172,10 +172,10 @@ MonoBehaviour:
   - {x: -0.5361328, y: 0, z: -13.226133}
   - {x: -8.159599, y: 0, z: -21.33115}
   - {x: -21.86, y: 0, z: -21.86}
-  ExitRailTop: {fileID: 839918764}
-  ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 1382294847}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 1382294847}
+  EntranceFromExit: 1
+  Exit: {fileID: 839918764}
+  ExitToExit: 1
 --- !u!1 &117298721
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,12 +456,12 @@ MonoBehaviour:
   - {x: -10.904064, y: 0, z: 21.360817}
   - {x: -0.984416, y: 0, z: 10.760887}
   - {x: 0, y: 0, z: 0}
-  ExitRailTopLeft: {fileID: 869202493}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 1382294847}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 1108051049}
-  ExitRailBottomToIntersection: 0
+  Entrance: {fileID: 1108051049}
+  EntranceFromExit: 0
+  LeftExit: {fileID: 869202493}
+  LeftExitToExit: 1
+  RightExit: {fileID: 1382294847}
+  RightExitToExit: 0
 --- !u!1 &178056818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,10 +1008,10 @@ MonoBehaviour:
   - {x: 4, y: 0, z: 0}
   - {x: 12, y: 0, z: 0}
   - {x: 16, y: 0, z: 0}
-  ExitRailTop: {fileID: 907811269}
-  ExitRailTopToIntersection: 0
-  ExitRailBottom: {fileID: 1939998288}
-  ExitRailBottomToIntersection: 0
+  Entrance: {fileID: 1939998288}
+  EntranceFromExit: 0
+  Exit: {fileID: 907811269}
+  ExitToExit: 0
 --- !u!1 &474051850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,12 +1746,12 @@ MonoBehaviour:
   - {x: -31.728928, y: 0, z: -1.1035461}
   - {x: -16.386127, y: 0, z: -59.67808}
   - {x: 16, y: 0, z: -59.712}
-  ExitRailTopLeft: {fileID: 9770186}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 1949654475}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 1108051049}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 1108051049}
+  EntranceFromExit: 1
+  LeftExit: {fileID: 9770186}
+  LeftExitToExit: 1
+  RightExit: {fileID: 1949654475}
+  RightExitToExit: 0
 --- !u!1 &858139003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,10 +1894,10 @@ MonoBehaviour:
   - {x: 11.500905, y: 0, z: 4.935854}
   - {x: -1.5059032, y: 0, z: 11.722537}
   - {x: 0, y: 0, z: 32}
-  ExitRailTop: {fileID: 173113235}
-  ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 907811269}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 907811269}
+  EntranceFromExit: 1
+  Exit: {fileID: 173113235}
+  ExitToExit: 1
 --- !u!1 &889767485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,12 +2120,12 @@ MonoBehaviour:
   - {x: 30.027832, y: 0, z: -2.1013374}
   - {x: 16.38613, y: 0, z: 59.67808}
   - {x: -16, y: 0, z: 59.712}
-  ExitRailTopLeft: {fileID: 1248902340}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 869202493}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 470010984}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 470010984}
+  EntranceFromExit: 1
+  LeftExit: {fileID: 1248902340}
+  LeftExitToExit: 1
+  RightExit: {fileID: 869202493}
+  RightExitToExit: 0
 --- !u!1 &920059643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,10 +2175,10 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 16}
-  ExitRailTop: {fileID: 1382294847}
-  ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 1971181398}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 1971181398}
+  EntranceFromExit: 1
+  Exit: {fileID: 1382294847}
+  ExitToExit: 1
 --- !u!1 &927122654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,10 +2632,10 @@ MonoBehaviour:
   - {x: -4, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
   - {x: -16, y: 0, z: 0}
-  ExitRailTop: {fileID: 839918764}
-  ExitRailTopToIntersection: 0
-  ExitRailBottom: {fileID: 173113235}
-  ExitRailBottomToIntersection: 0
+  Entrance: {fileID: 173113235}
+  EntranceFromExit: 0
+  Exit: {fileID: 839918764}
+  ExitToExit: 0
 --- !u!54 &1117797178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3053,10 +3053,10 @@ MonoBehaviour:
   - {x: 0.5361328, y: 0, z: 13.22613}
   - {x: 8.159599, y: 0, z: 21.33115}
   - {x: 21.86, y: 0, z: 21.86}
-  ExitRailTop: {fileID: 907811269}
-  ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 1971181398}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 1971181398}
+  EntranceFromExit: 1
+  Exit: {fileID: 907811269}
+  ExitToExit: 1
 --- !u!1 &1336713289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3201,12 +3201,12 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 12}
   - {x: 0, y: 0, z: 4}
   - {x: 0, y: 0, z: 0}
-  ExitRailTopLeft: {fileID: 920059645}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 9770186}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 173113235}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 173113235}
+  EntranceFromExit: 1
+  LeftExit: {fileID: 920059645}
+  LeftExitToExit: 1
+  RightExit: {fileID: 9770186}
+  RightExitToExit: 0
 --- !u!1 &1404958281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,12 +4554,12 @@ MonoBehaviour:
   - {x: 10.90406, y: 0, z: -21.36082}
   - {x: 0.984416, y: 0, z: -10.76089}
   - {x: 0, y: 0, z: 0}
-  ExitRailTopLeft: {fileID: 1949654475}
-  ExitRailTopLeftToIntersection: 1
-  ExitRailTopRight: {fileID: 1971181398}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 470010984}
-  ExitRailBottomToIntersection: 0
+  Entrance: {fileID: 470010984}
+  EntranceFromExit: 0
+  LeftExit: {fileID: 1949654475}
+  LeftExitToExit: 1
+  RightExit: {fileID: 1971181398}
+  RightExitToExit: 0
 --- !u!1 &1949654473
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,10 +4609,10 @@ MonoBehaviour:
   - {x: -7.039094, y: 0, z: -7.0315075}
   - {x: -0.22544575, y: 0, z: -10.832114}
   - {x: 0, y: 0, z: -32}
-  ExitRailTop: {fileID: 1939998288}
-  ExitRailTopToIntersection: 1
-  ExitRailBottom: {fileID: 839918764}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 839918764}
+  EntranceFromExit: 1
+  Exit: {fileID: 1939998288}
+  ExitToExit: 1
 --- !u!1 &1971181396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4662,12 +4662,12 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -8}
   - {x: 0, y: 0, z: -8}
   - {x: 0, y: 0, z: 0}
-  ExitRailTopLeft: {fileID: 920059645}
-  ExitRailTopLeftToIntersection: 0
-  ExitRailTopRight: {fileID: 1248902340}
-  ExitRailTopRightToIntersection: 0
-  ExitRailBottom: {fileID: 1939998288}
-  ExitRailBottomToIntersection: 1
+  Entrance: {fileID: 1939998288}
+  EntranceFromExit: 1
+  LeftExit: {fileID: 920059645}
+  LeftExitToExit: 0
+  RightExit: {fileID: 1248902340}
+  RightExitToExit: 0
 --- !u!1 &1972399477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,16 +5424,15 @@ MonoBehaviour:
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
-  Acceleration: 0
-  InitialVelocity: 0
+  VCurveStart: 0
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 1002881967388732088}
   SpaceBetwixtCars: 0.7
   TimeSinceVelocityWasSet: 0
-  AccelerationModifier: 3
-  speedmod: 0
+  AccelerationMod: 3
+  SpeedMod: 0
 --- !u!33 &1002881966010705474
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5702,16 +5701,15 @@ MonoBehaviour:
   BaseSpeed: 2
   Velocity: 1
   TargetVelocity: 1
-  Acceleration: 0
-  InitialVelocity: 0
+  VCurveStart: 0
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 4526511914853988825}
   SpaceBetwixtCars: 0.11
   TimeSinceVelocityWasSet: 0
-  AccelerationModifier: 3
-  speedmod: 0
+  AccelerationMod: 3
+  SpeedMod: 0
 --- !u!4 &1160799822725443987
 Transform:
   m_ObjectHideFlags: 0
@@ -5771,16 +5769,15 @@ MonoBehaviour:
   BaseSpeed: 0.2
   Velocity: 0
   TargetVelocity: 0
-  Acceleration: 0
-  InitialVelocity: 0
+  VCurveStart: 0
   CurrentDirection: 0
   CurrentOrientation: 0
   progress: 0.5
   TargetConnection: {fileID: 0}
   SpaceBetwixtCars: 0.009
   TimeSinceVelocityWasSet: 0
-  AccelerationModifier: 3
-  speedmod: 0
+  AccelerationMod: 3
+  SpeedMod: 0
 --- !u!33 &7002493175218732911
 MeshFilter:
   m_ObjectHideFlags: 0

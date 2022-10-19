@@ -16,8 +16,7 @@ public class RailSplineThroughwayInspector : Editor {
 		}
 
 		if(points.Count >= 4) {
-			BezierSpline spline = new BezierSpline();
-			spline.Initialize(railway.Points);
+			BezierSpline spline = new BezierSpline(railway.Points);
 			Handles.color = Color.white;
 
 			for (float i = 0; i < 1; i+=.01f) {

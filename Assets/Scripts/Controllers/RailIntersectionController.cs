@@ -6,17 +6,17 @@ using Helpers;
 public class RailIntersectionController : RailController {
 	RailExit Bottom, TopLeft, TopRight;
 
-	public RailController ExitRailTopLeft;
-	public bool ExitRailTopLeftToIntersection;
-	public RailController ExitRailTopRight;
-	public bool ExitRailTopRightToIntersection;
-	public RailController ExitRailBottom;
-	public bool ExitRailBottomToIntersection;
+	public RailController Entrance;
+	public bool EntranceFromExit;
+	public RailController LeftExit;
+	public bool LeftExitToExit;
+	public RailController RightExit;
+	public bool RightExitToExit;
 
 	protected override void InitializeExits() {
-		TopLeft = CreateExit(ExitRailTopLeft, true, ExitRailTopLeftToIntersection);
-		TopRight = CreateExit(ExitRailTopRight, true, ExitRailTopRightToIntersection);
-		Bottom = CreateExit(ExitRailBottom, false, ExitRailBottomToIntersection);
+		TopLeft = CreateExit(LeftExit, true, LeftExitToExit);
+		TopRight = CreateExit(RightExit, true, RightExitToExit);
+		Bottom = CreateExit(Entrance, false, EntranceFromExit);
 	}
 
 	public override Vector3 GetPoint(float t, bool reverse = false) {

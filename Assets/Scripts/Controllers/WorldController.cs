@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Michsky.UI.ModernUIPack;
 
-public class WorldController : MonoBehaviour
-{
+public class WorldController : MonoBehaviour {
     public static bool Paused = false;
 
 	public CarController Engine;

@@ -7,9 +7,8 @@ public class CarController : MonoBehaviour {
 
 	public bool IsEngine { get { return TargetConnection == null; } }
 
-	public float BaseSpeed = .8f, Velocity = 0f, TargetVelocity = 0f, Acceleration = 0f;
-	public float InitialVelocity = 0f;
-	Vector3 TargetDirection, cu;
+	public float BaseSpeed = .2f, Velocity = 0f, TargetVelocity = 0f;
+	public float VCurveStart = 0f;
 
 	public Direction CurrentDirection = Direction.Left;
 	public Orientation CurrentOrientation = Orientation.Forward;
@@ -22,12 +21,13 @@ public class CarController : MonoBehaviour {
 
 	public float TimeSinceVelocityWasSet = 0f;
 
-	public float AccelerationModifier = 3f;
-	public float speedmod;
+	public float AccelerationMod = 3f;
+	public float SpeedMod;
 
 	private void Awake() {
-		if(TargetConnection != null) {
+		if(!IsEngine) {
 			Railway = TargetConnection.Railway;
+			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
 			progress = TargetConnection.progress - SpaceBetwixtCars;
 		}
 	}
@@ -35,47 +35,41 @@ public class CarController : MonoBehaviour {
 	private void Update () {
 		if (WorldController.Paused) return;
 
-		if (TargetConnection == null) {
+		//update progress
+		if (IsEngine) {
 
-			if(TimeSinceVelocityWasSet < 1) {
+			if (TimeSinceVelocityWasSet < 1) {
 				//VELOCITY EQUATION
 				//(3.6x^2 - 3.7x^3 + 1.1x^4) * (TargetVelocity - Initial Velocity) + Initial Velocity
 
-				TimeSinceVelocityWasSet += Time.deltaTime / AccelerationModifier;
+				TimeSinceVelocityWasSet += Time.deltaTime / AccelerationMod;
 
 				float x = TimeSinceVelocityWasSet;
 				Velocity = (3.6f * Mathf.Pow(x, 2)
-					- 3.7f* Mathf.Pow(x, 3)
+					- 3.7f * Mathf.Pow(x, 3)
 					+ 1.1f * Mathf.Pow(x, 4))
-					* (TargetVelocity - InitialVelocity) + InitialVelocity;
+					* (TargetVelocity - VCurveStart) + VCurveStart;
 			} else {
 				Velocity = TargetVelocity;
-				//Debug.Log(Railway.GetDistanceOfCurrentSpan(progress));
 			}
-			speedmod = Railway.SpeedModAtProgress(progress);
-			progress += (Time.deltaTime) * Velocity * speedmod;
-		}
-		else 
-		{
-			Velocity = TargetConnection.Velocity;
-			CurrentDirection = TargetConnection.CurrentDirection;
+			SpeedMod = Railway.SpeedModAtProgress(progress);
+			progress += (Time.deltaTime) * Velocity * SpeedMod;
+		} else {
 			SpaceBetwixtCars = TargetConnection.SpaceBetwixtCars;
-			//progress = TargetConnection.progress - SpaceBetwixtCars;
-			speedmod = TargetConnection.speedmod;
+			Velocity = TargetConnection.Velocity;
+			SpeedMod = Railway.SpeedModAtProgress(progress);
+			CurrentDirection = TargetConnection.CurrentDirection;
 
-			float distanceFromConnection = TargetConnection.progress - SpaceBetwixtCars * speedmod;
-
-			if (Railway == TargetConnection.Railway || (distanceFromConnection > 0 && distanceFromConnection < 1)) {
-				Railway = TargetConnection.Railway;
+			if (Railway == TargetConnection.Railway) {
 				CurrentOrientation = TargetConnection.CurrentOrientation;
 
-				progress = (TargetConnection.progress - SpaceBetwixtCars * speedmod);
+				progress = (TargetConnection.progress - SpaceBetwixtCars * SpeedMod);
 			} else {
-
-				progress += (Time.deltaTime) * Velocity * speedmod;
+				progress += (Time.deltaTime) * Velocity * SpeedMod;
 			}
 		}
 
+		//Update Railway
 		if (Railway.CarHasLeftRail(progress) && Velocity != 0) {
 
 			var nextRail = Railway.GetNextRail(this);
@@ -85,9 +79,9 @@ public class CarController : MonoBehaviour {
 				WorldController.ForceFullstop();
 
 				if(CurrentOrientation == Orientation.Forward) {
-					progress = (Time.deltaTime) * Velocity + .01f;
+					progress = (Time.deltaTime) * Velocity * SpeedMod;
 				} else {
-					progress = 1;
+					progress = 1  - (Time.deltaTime) * Velocity * SpeedMod;
 				}
 			} else {
 				// continue onto rail
@@ -95,23 +89,24 @@ public class CarController : MonoBehaviour {
 			}
 		}
 
+		//update position
 		Vector3 position = Railway.GetPoint(progress, CurrentOrientation == Orientation.Reverse);
 		transform.localPosition = position;
-
-
+		
+		//update orientation
 		transform.LookAt(Railway.GetDirection(progress, CurrentOrientation == Orientation.Reverse));
 	}
 
 	public void SetTargetVelocity(float nv) {
 		if (TargetVelocity != nv) {
 			TargetVelocity = nv;
-			InitialVelocity = Velocity;
+			VCurveStart = Velocity;
 			TimeSinceVelocityWasSet = 0f;
 
-			if(TargetVelocity < 0 && InitialVelocity > 0) {
-				AccelerationModifier = 2f;
+			if(TargetVelocity < 0 && VCurveStart > 0) {
+				AccelerationMod = 2f;
 			} else {
-				AccelerationModifier = 3f;
+				AccelerationMod = 3f;
 			}
 		}
 	}

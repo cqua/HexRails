@@ -4,6 +4,14 @@ using System.Collections.Generic;
 
 public class BezierSpline {
 
+	public BezierSpline(List<Vector3> p) {
+		points = p.ToArray();
+		modes = new BezierControlPointMode[] {
+			BezierControlPointMode.Free,
+			BezierControlPointMode.Free
+		};
+	}
+
 	[SerializeField]
 	private Vector3[] points;
 

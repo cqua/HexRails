@@ -6,14 +6,14 @@ using Helpers;
 public class RailThroughwayController : RailController {
 	RailExit Bottom, Top;
 
-	public RailController ExitRailTop;
-	public bool ExitRailTopToIntersection;
-	public RailController ExitRailBottom;
-	public bool ExitRailBottomToIntersection;
+	public RailController Entrance;
+	public bool EntranceFromExit;
+	public RailController Exit;
+	public bool ExitToExit;
 
 	protected override void InitializeExits() {
-		Top = CreateExit(ExitRailTop, false, ExitRailTopToIntersection);
-		Bottom = CreateExit(ExitRailBottom, false, ExitRailBottomToIntersection);
+		Top = CreateExit(Exit, false, ExitToExit);
+		Bottom = CreateExit(Entrance, false, EntranceFromExit);
 	}
 
 	public override Vector3 GetPoint(float t, bool reverse = false) {
